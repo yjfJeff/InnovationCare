@@ -3,7 +3,6 @@
 
     <string name="app_name">Antimicrobial Guidelines</string>
     <string name="action_settings">Settings</string>
-    
     <string name="treatment_infection_button_text">Empirical treatment of infections</string>
     <string name="prophylaxis_infection_button_text">Procedural prophylaxis of infections</string>
     <string name="Antimicrobial_renal_dysfunction_button_text">Antimicrobial for renal dysfunction</string>
@@ -14,4 +13,27 @@
     <string name="contact_us_button_text">Contact Us</string>
     <string name="copyright_info">Copyright© 2013 Innovation Care. All Rights Reserved.</string>
     <string name="company_name">Innovation Care</string>
+    <string name="consultant">Consultant: </string>
+    <string name="tele_consultant">Tele: (221) 4450</string>
+    <string name="lynda">Dr Lynda Fenelon</string>
+    <string name="kirsten">Dr Kirsten Schaffer</string>
+    <string name="susan">Dr Susan FitzGerald</string>
+    <string name="deirdre">Dr Deirdre O\'Brien</string>
+    <string name="vivien">Dr Vivien Murphy</string>
+    <string name="william">Prof William Hall</string>
+    <string name="registrar">Registrars: </string>
+    <string name="tele_registrar">Tele:(221)4949/3460/3459/3284</string>
+    <string name="address">Ward registrar bleep 480 \n ICU/Oncology/Haematology/Liver bleep 685</string>
+    <string name="pharmacist">Pharmacist: </string>
+    <string name="antimicrobial">Antimicrobial Pharmacist</string>
+    <string name="zulema">Zulema Gonzalez bleep 528</string>
+    <string name="SVUH">Medicines Information Service SVUH</string>
+    <string name="tele_pharmacy">Tele:(221)4139/3696</string>
+    <string name="infection">Infection: </string>
+    <string name="IPCNfull">Infection Prevention and Control</string>
+    <string name="tele_infection">Tel (221) 3197</string>
+    <string name="IPCN">IPCN on duty bleep 122</string>
+    <string name="laboratory">Laboratory</string>
+    <string name="tele_laboratory">Tele:(221) 4450/4470</string>
+
 </resources>
