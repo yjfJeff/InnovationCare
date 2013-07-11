@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Antibiotic Guidelines</string>
+    <string name="app_name">Antimicrobial Guidelines</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-
+    
+    <string name="treatment_infection_button_text">Empirical treatment of infections</string>
+    <string name="prophylaxis_infection_button_text">Procedural prophylaxis of infections</string>
+    <string name="Antimicrobial_renal_dysfunction_button_text">Antimicrobial for renal dysfunction</string>
+    <string name="antimicrobial_reference_button_text">Antimicrobial references</string>
+    <string name="interaction_check_button_text">Interaction Check</string>
+    <string name="dose_calculator_button_text">Dose Calculator</string>
+    <string name="notification_centre_button_text">Notification Centre</string>
+    <string name="contact_us_button_text">Contact Us</string>
+    <string name="copyright_info">Copyright© 2013 Innovation Care. All Rights Reserved.</string>
+    <string name="company_name">Innovation Care</string>
 </resources>
