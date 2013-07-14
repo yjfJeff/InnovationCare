@@ -1,16 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
+
+    <TableLayout
+        android:id="@+id/buttonTable"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <!-- "Empirical treatment of infections" button -->
+
+            <Button
+                android:id="@+id/treatInfectionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:singleLine="false"
+                android:text="@string/treatment_infection_button_text" />
+
+            <!-- "procedural prophylaxis of infections" button -->
+
+            <Button
+                android:id="@+id/prophyInfectionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:singleLine="false"
+                android:text="@string/prophylaxis_infection_button_text" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/renalDysfucButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:singleLine="false"
+                android:text="@string/Antimicrobial_renal_dysfunction_button_text" />
+
+            <Button
+                android:id="@+id/antimicroRefButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:singleLine="false"
+                android:text="@string/antimicrobial_reference_button_text" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/interactCheckButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:singleLine="false"
+                android:text="@string/interaction_check_button_text" />
+
+            <Button
+                android:id="@+id/doseCalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:singleLine="false"
+                android:text="@string/dose_calculator_button_text" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/notiCentreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:singleLine="false"
+                android:text="@string/notification_centre_button_text" />
+
+            <Button
+                android:id="@+id/contactUsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/roundy_button"
+                android:gravity="center"
+                android:singleLine="false"
+                android:text="@string/contact_us_button_text" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/copyrightInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/copyright_info"
+        android:layout_marginBottom="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_above="@+id/copyrightInfoTextView"
+        android:layout_centerHorizontal="true"
+        android:text="@string/company_name"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"/>
 
 </RelativeLayout>
