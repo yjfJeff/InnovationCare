@@ -27,41 +27,92 @@ public final class R {
         public static final int roundy_button_pressed=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000e;
-        public static final int antimicroRefButton=0x7f080006;
-        public static final int buttonTable=0x7f080000;
-        public static final int contactUsButton=0x7f08000c;
-        public static final int copyrightInfoTextView=0x7f08000d;
-        public static final int doseCalButton=0x7f080009;
-        public static final int interactCheckButton=0x7f080008;
-        public static final int notiCentreButton=0x7f08000b;
-        public static final int prophyInfectionButton=0x7f080003;
-        public static final int renalDysfucButton=0x7f080005;
-        public static final int tableRow1=0x7f080001;
-        public static final int tableRow2=0x7f080004;
-        public static final int tableRow3=0x7f080007;
-        public static final int tableRow4=0x7f08000a;
-        public static final int treatInfectionButton=0x7f080002;
+        public static final int action_settings=0x7f08002a;
+        public static final int antimicroRefButton=0x7f080023;
+        public static final int buttonTable=0x7f08001e;
+        public static final int contactUsButton=0x7f080029;
+        public static final int copyrightInfoTextView=0x7f08001d;
+        public static final int doseCalButton=0x7f080026;
+        public static final int interactCheckButton=0x7f080025;
+        public static final int notiCentreButton=0x7f080028;
+        public static final int prophyInfectionButton=0x7f080020;
+        public static final int renalDysfucButton=0x7f080022;
+        public static final int tableRow1=0x7f08001b;
+        public static final int tableRow2=0x7f080021;
+        public static final int tableRow3=0x7f080024;
+        public static final int tableRow4=0x7f080027;
+        public static final int teleconsul=0x7f080002;
+        public static final int trconsultant=0x7f080000;
+        public static final int trcopyrightInfo=0x7f08001c;
+        public static final int treatInfectionButton=0x7f08001f;
+        public static final int trinfection=0x7f080013;
+        public static final int trlaboratory=0x7f080018;
+        public static final int trpharmacist=0x7f08000d;
+        public static final int trregistrar=0x7f080009;
+        public static final int tvIPCN=0x7f080017;
+        public static final int tvIPCNfull=0x7f080016;
+        public static final int tvSVUH=0x7f080012;
+        public static final int tvaddressline1=0x7f08000c;
+        public static final int tvantimicrobial=0x7f080010;
+        public static final int tvconsultant=0x7f080001;
+        public static final int tvdeirdre=0x7f080006;
+        public static final int tvinfection=0x7f080014;
+        public static final int tvkirsten=0x7f080004;
+        public static final int tvlaboratory=0x7f080019;
+        public static final int tvlynda=0x7f080003;
+        public static final int tvpharmacist=0x7f08000e;
+        public static final int tvregistrar=0x7f08000a;
+        public static final int tvsusan=0x7f080005;
+        public static final int tvteleinfection=0x7f080015;
+        public static final int tvtelelaboratory=0x7f08001a;
+        public static final int tvtelepharmacy=0x7f08000f;
+        public static final int tvteleregistrars=0x7f08000b;
+        public static final int tvvivien=0x7f080007;
+        public static final int tvwilliam=0x7f080008;
+        public static final int tvzulema=0x7f080011;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_contact_us=0x7f030000;
+        public static final int activity_main=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f070000;
     }
     public static final class string {
         public static final int Antimicrobial_renal_dysfunction_button_text=0x7f050004;
+        public static final int IPCN=0x7f05001f;
+        public static final int IPCNfull=0x7f05001d;
+        public static final int SVUH=0x7f05001a;
         public static final int action_settings=0x7f050001;
+        public static final int address=0x7f050016;
+        public static final int antimicrobial=0x7f050018;
         public static final int antimicrobial_reference_button_text=0x7f050005;
         public static final int app_name=0x7f050000;
         public static final int company_name=0x7f05000b;
+        public static final int consultant=0x7f05000c;
         public static final int contact_us_button_text=0x7f050009;
         public static final int copyright_info=0x7f05000a;
+        public static final int deirdre=0x7f050011;
         public static final int dose_calculator_button_text=0x7f050007;
+        public static final int infection=0x7f05001c;
         public static final int interaction_check_button_text=0x7f050006;
+        public static final int kirsten=0x7f05000f;
+        public static final int laboratory=0x7f050020;
+        public static final int lynda=0x7f05000e;
         public static final int notification_centre_button_text=0x7f050008;
+        public static final int pharmacist=0x7f050017;
         public static final int prophylaxis_infection_button_text=0x7f050003;
+        public static final int registrar=0x7f050014;
+        public static final int susan=0x7f050010;
+        public static final int tele_consultant=0x7f05000d;
+        public static final int tele_infection=0x7f05001e;
+        public static final int tele_laboratory=0x7f050021;
+        public static final int tele_pharmacy=0x7f05001b;
+        public static final int tele_registrar=0x7f050015;
         public static final int treatment_infection_button_text=0x7f050002;
+        public static final int vivien=0x7f050012;
+        public static final int william=0x7f050013;
+        public static final int zulema=0x7f050019;
     }
     public static final class style {
         /** 

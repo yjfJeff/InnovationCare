@@ -2,7 +2,9 @@ package innovationcare.app.antibioticguidelines;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -19,4 +21,13 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	/**
+	 * The on-click method for the "Contact Us" button to open the Contact Us
+	 * screen.
+	 * 
+	 */
+	public void openContactUsScreen (View v) {
+		Intent intent = new Intent(this, ContactUsActivity.class);
+		startActivity(intent);
+	}
 }
