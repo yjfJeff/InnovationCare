@@ -22,6 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ContactUsActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
