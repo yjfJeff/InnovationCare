@@ -35,5 +35,7 @@
     <string name="IPCN">IPCN on duty bleep 122</string>
     <string name="laboratory">Laboratory</string>
     <string name="tele_laboratory">Tele:(221) 4450/4470</string>
+    <string name="title_activity_infection_list">InfectionListActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
