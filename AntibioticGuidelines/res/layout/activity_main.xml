@@ -27,7 +27,8 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/roundy_button"
                 android:singleLine="false"
-                android:text="@string/treatment_infection_button_text" />
+                android:text="@string/treatment_infection_button_text"
+                android:onClick="openInfectionCategoryScreen" />
 
             <!-- "procedural prophylaxis of infections" button -->
 
@@ -111,12 +112,14 @@
                 android:background="@drawable/roundy_button"
                 android:gravity="center"
                 android:singleLine="false"
-                android:text="@string/contact_us_button_text" />
+                android:text="@string/contact_us_button_text"
+                android:onClick="openContactUsScreen" />
         </TableRow>
     </TableLayout>
 
     <TextView
         android:id="@+id/copyrightInfoTextView"
+        android:linksClickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
