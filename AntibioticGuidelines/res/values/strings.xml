@@ -37,5 +37,7 @@
     <string name="tele_laboratory">Tele:(221) 4450/4470</string>
     <string name="title_activity_infection_list">InfectionListActivity</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="title_activity_interaction">Interaction</string>
+	<string name="forward">Forward</string>
+	<string name="back">Back</string>
 </resources>

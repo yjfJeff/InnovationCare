@@ -78,7 +78,8 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/roundy_button"
                 android:singleLine="false"
-                android:text="@string/interaction_check_button_text" />
+                android:text="@string/interaction_check_button_text" 
+                android:onClick="openInteractionScreen"/>
 
             <Button
                 android:id="@+id/doseCalButton"
