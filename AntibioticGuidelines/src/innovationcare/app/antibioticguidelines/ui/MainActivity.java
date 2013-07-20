@@ -55,4 +55,8 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, InfectionCategoryListActivity.class);
 		startActivity(intent);
 	}
+	public void openInteractionScreen(View v) {
+		Intent intent = new Intent(this, InteractionActivity.class);
+		startActivity(intent);
+	}
 }
