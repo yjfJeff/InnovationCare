@@ -55,8 +55,14 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, InfectionCategoryListActivity.class);
 		startActivity(intent);
 	}
+<<<<<<< HEAD
 	public void openInteractionScreen(View v) {
 		Intent intent = new Intent(this, InteractionActivity.class);
+=======
+	
+	public void openAntibioticListScreen(View v) {
+		Intent intent = new Intent(this, AntibioticListActivity.class);
+>>>>>>> infection and database changes
 		startActivity(intent);
 	}
 }

@@ -7,12 +7,13 @@
  */
 package innovationcare.app.antibioticguidelines.database;
 
-import innovationcare.app.antibioticguidelines.Infection;
-import innovationcare.app.antibioticguidelines.InfectionCategory;
-
+import innovationcare.app.antibioticguidelines.InfectionContent;
+import innovationcare.app.antibioticguidelines.CategoryMenu;
+import innovationcare.app.antibioticguidelines.database.table.CategoryMenuTable;
 import java.util.ArrayList;
-
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
@@ -49,20 +50,26 @@ public class GuidelineDataAccess {
 	 * 
 	 * @return A list of the <code>InfectionCategory</code> objects.
 	 */
-	public ArrayList<InfectionCategory> readAllInfectionCategories() {
-		final ArrayList<InfectionCategory> infectionCategoryList = 
-				new ArrayList<InfectionCategory>();
+	public ArrayList<CategoryMenu> readAllCategoryMenus() {
+		final ArrayList<CategoryMenu> catMenuList = 
+				new ArrayList<CategoryMenu>();
 		
-		InfectionCategory infectionCat1 = new InfectionCategory(1, "infection category 1");
-		infectionCategoryList.add(infectionCat1);
+		Cursor cursor = database.rawQuery("select * from " + CategoryMenuTable.TABLE_NAME, new String[] {});
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			CategoryMenu catMenu = new CategoryMenu();
+			catMenu.setId(cursor.getLong(0));
+			catMenu.setName(cursor.getString(1));
+
+			catMenuList.add(catMenu);
+
+			cursor.moveToNext();
+		}
 		
-		InfectionCategory infectionCat2 = new InfectionCategory(2, "infection category 2");
-		infectionCategoryList.add(infectionCat2);
+		// Close the cursor
+		cursor.close();
 		
-		InfectionCategory infectionCat3 = new InfectionCategory(3, "infection category 3");
-		infectionCategoryList.add(infectionCat3);
-		
-		return infectionCategoryList;
+		return catMenuList;
 	}
 	
 	/**
@@ -71,20 +78,33 @@ public class GuidelineDataAccess {
 	 * 
 	 * @return
 	 */
-	public ArrayList<Infection> readInfectionsByCategory(long categoryId) {
-		ArrayList<Infection> infectionList = new ArrayList<Infection>();
+	public ArrayList<InfectionContent> readInfectionsByCategory(long categoryId) {
+		ArrayList<InfectionContent> infectionList = new ArrayList<InfectionContent>();
 		
 		//TODO: Remove mock up data.
-		Infection infection1 = new Infection(1, "infection 1", "presentation 1", "organism 1", "antibiotics list 1");
+		InfectionContent infection1 = new InfectionContent(1, "presentation 1", "organism 1", "antibiotics list 1");
 		infectionList.add(infection1);
 		
-		Infection infection2 = new Infection(2, "infection 2", "presentation 2", "organism 2", "antibiotics list 2");
+		InfectionContent infection2 = new InfectionContent(2, "presentation 2", "organism 2", "antibiotics list 2");
 		infectionList.add(infection2);
 		
-		Infection infection3 = new Infection(3, "infection 3", "presentation 3", "organism 3", "antibiotics list 3");
+		InfectionContent infection3 = new InfectionContent(3, "presentation 3", "organism 3", "antibiotics list 3");
 		infectionList.add(infection3);
 		
 		return infectionList;
+	}
+	
+	/**
+	 * 
+	 */
+	public long insertCategoryMenu(CategoryMenu catMenu) {
+		
+		// Insert the expense to the Expense table
+		ContentValues values = new ContentValues();
+		values.put(CategoryMenuTable.NAME, catMenu.getName());
+		long id = database.insert(CategoryMenuTable.TABLE_NAME, null, values);
+
+		return id;
 	}
 	
 }

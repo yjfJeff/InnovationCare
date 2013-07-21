@@ -7,7 +7,7 @@
  */
 package innovationcare.app.antibioticguidelines.ui;
 
-import innovationcare.app.antibioticguidelines.InfectionCategory;
+import innovationcare.app.antibioticguidelines.CategoryMenu;
 import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.R.id;
 import innovationcare.app.antibioticguidelines.R.layout;
@@ -51,13 +51,13 @@ public class InfectionCategoryListActivity extends Activity {
 		// Open the database.
 		dao.open();
 		
-		final ArrayList<InfectionCategory> infectionCatList = 
-				dao.readAllInfectionCategories();
+		final ArrayList<CategoryMenu> infectionCatList = 
+				dao.readAllCategoryMenus();
 		
 		// Close the database;
 		dao.close();
 		
-		final ArrayAdapter<InfectionCategory> adapter = new ArrayAdapter<InfectionCategory>(this, 
+		final ArrayAdapter<CategoryMenu> adapter = new ArrayAdapter<CategoryMenu>(this, 
 				android.R.layout.simple_list_item_1, 
 				infectionCatList);
 		
@@ -70,8 +70,8 @@ public class InfectionCategoryListActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, 
 					int position, long id) {
 				
-				 final InfectionCategory infectionCat = 
-						 (InfectionCategory) parent.getItemAtPosition(position);
+				 final CategoryMenu infectionCat = 
+						 (CategoryMenu) parent.getItemAtPosition(position);
 				 
 				 Intent intent = new Intent(parent.getContext(), 
 						 InfectionListActivity.class);

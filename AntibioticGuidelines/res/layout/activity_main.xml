@@ -63,7 +63,8 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/roundy_button"
                 android:singleLine="false"
-                android:text="@string/antimicrobial_reference_button_text" />
+                android:text="@string/antimicrobial_reference_button_text"
+                android:onClick="openAntibioticListScreen" />
         </TableRow>
 
         <TableRow

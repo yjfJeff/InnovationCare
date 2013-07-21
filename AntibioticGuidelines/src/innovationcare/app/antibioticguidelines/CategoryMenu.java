@@ -18,7 +18,7 @@ package innovationcare.app.antibioticguidelines;
  * The class representation of the infection category.
  *
  */
-public class InfectionCategory {
+public class CategoryMenu {
 	/**
 	 * The id of an infection category.
 	 */
@@ -33,7 +33,7 @@ public class InfectionCategory {
 	/**
 	 * Constructor.
 	 */
-	public InfectionCategory() {
+	public CategoryMenu() {
 		// Empty.
 	}
 	
@@ -43,7 +43,7 @@ public class InfectionCategory {
 	 * @param _id The id of the infection category.
 	 * @param name The name of the infection category.
 	 */
-	public InfectionCategory(long _id, String name) {
+	public CategoryMenu(long _id, String name) {
 		this._id = _id;
 		this.name = name;
 	}

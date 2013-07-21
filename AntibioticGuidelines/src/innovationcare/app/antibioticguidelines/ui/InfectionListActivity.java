@@ -7,7 +7,8 @@
  */
 package innovationcare.app.antibioticguidelines.ui;
 
-import innovationcare.app.antibioticguidelines.Infection;
+import innovationcare.app.antibioticguidelines.InfectionContent;
+import innovationcare.app.antibioticguidelines.CategoryMenu;
 import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.R.id;
 import innovationcare.app.antibioticguidelines.R.layout;
@@ -19,6 +20,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.support.v4.app.NavUtils;
@@ -63,17 +66,34 @@ public class InfectionListActivity extends Activity {
 		dao.open();
 		
 		// Read all infections from a certain category.
-		ArrayList<Infection> infectionList = 
+		ArrayList<InfectionContent> infectionList = 
 				dao.readInfectionsByCategory(categoryId);
 		dao.close();
 		
-		final ArrayAdapter<Infection> adapter = new ArrayAdapter<Infection>(
+		final ArrayAdapter<InfectionContent> adapter = new ArrayAdapter<InfectionContent>(
 				this, android.R.layout.simple_list_item_1, 
 				infectionList);
 		
 		infectionListView.setAdapter(adapter);
 		
-		//TODO: add the on click event to open the infection details page.
+		// Click handler.
+		infectionListView.setOnItemClickListener(
+				new AdapterView.OnItemClickListener(){
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, 
+					int position, long id) {
+						
+				 final InfectionContent infection = 
+						 (InfectionContent) parent.getItemAtPosition(position);
+						 
+				 Intent intent = new Intent(parent.getContext(), 
+						 InfectionActivity.class);
+//				 intent.putExtra("categoryId", infection.getId());
+//				 intent.putExtra("categoryName", infection.getName());
+				 startActivity(intent);
+			}
+					
+		});
 		
 	}
 

@@ -21,6 +21,10 @@ package innovationcare.app.antibioticguidelines;
  */
 public class Antibiotic {
 	
+	
+	//TODO: update the attributes according to the new database schema.
+	
+	
 	/**
 	 * Infection id, which corresponds with the id in SQLite table.
 	 */

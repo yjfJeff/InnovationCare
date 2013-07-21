@@ -21,16 +21,11 @@ import java.util.ArrayList;
  * The class representation of the infection.
  *
  */
-public class Infection {
+public class InfectionContent {
 	/**
 	 * Infection id, which corresponds with the id in SQLite table.
 	 */
 	private long _id;
-	
-	/**
-	 * Infection name.
-	 */
-	private String name;
 	
 	/**
 	 * Infection presentation.
@@ -49,42 +44,39 @@ public class Infection {
 	private String antibioticList;
 	
 	/**
+	 * comments.
+	 */
+	private String comments;
+	
+	/**
+	 * the id of the menu.
+	 */
+	private long menuId;
+	
+	/**
 	 * Constructor.
 	 */
-	public Infection() {
+	public InfectionContent() {
 		// Empty.
 	}
 	
 	/**
 	 * Constructor.
-	 * 
-	 * 
+	 *
 	 * @param _id Infection id.
-	 * @param name Infection name.
 	 * @param presentation The presentation of an infection.
 	 * @param organism The organism of an infection.
 	 * @param antibioticList The list of antibiotics that can be used for
 	 *                       an infection.
 	 */
-	public Infection(long _id, String name, String presentation, 
+	public InfectionContent(long _id, String presentation, 
 			String organism, String antibioticList) {
 		
 		this._id = _id;
-		this.name = name;
 		this.presentation = presentation;
 		this.organism = organism;
 		this.antibioticList = antibioticList;
 	}
-	
-	// TODO: Getter and Setter methods.
-	
-	
-	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(name);
 		
-		return builder.toString();
-	}
+
 }

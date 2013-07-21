@@ -7,6 +7,8 @@
  */
 package innovationcare.app.antibioticguidelines.database;
 
+import innovationcare.app.antibioticguidelines.database.table.AntibioticTable;
+import innovationcare.app.antibioticguidelines.database.table.CategoryMenuTable;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -35,12 +37,12 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		// TODO: create database table here.
-//		database.execSQL(ExpenseTable.CREATE_TABLE_STATEMENT);
-//		database.execSQL(OneDayExpenseTable.CREATE_TABLE_STATEMENT);
+		database.execSQL(CategoryMenuTable.CREATE_TABLE_STATEMENT);
+		database.execSQL(AntibioticTable.CREATE_TABLE_STATEMENT);
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase datebase, int arg1, int arg2) {
+	public void onUpgrade(SQLiteDatabase datebase,  int oldVersion, int newVersion) {
 		// Do nothing.
 	}
 	

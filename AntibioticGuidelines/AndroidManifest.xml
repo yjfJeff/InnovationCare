@@ -9,6 +9,8 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -54,6 +56,7 @@
                 android:value="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity" />
         </activity>
         <activity
+<<<<<<< HEAD
             android:name="innovationcare.app.antibioticguidelines.ui.InteractionActivity"
             android:label="@string/title_activity_interaction" 
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -61,6 +64,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.InteractionActivity" />
+=======
+            android:name="innovationcare.app.antibioticguidelines.ui.InfectionActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity"
+            android:label="@string/title_activity_antibiotic_list"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
+>>>>>>> infection and database changes
         </activity>
     </application>
 
