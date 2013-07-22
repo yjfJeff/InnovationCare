@@ -45,13 +45,13 @@ public class InfectionCategoryListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_infection_category_list);
 		
-		final ListView infectionCategoryListView = 
+		final ListView catMenuListView = 
 				(ListView) findViewById(R.id.infectionCategoryList);
 		
 		// Open the database.
 		dao.open();
 		
-		final ArrayList<CategoryMenu> infectionCatList = 
+		final ArrayList<CategoryMenu> catMenuList = 
 				dao.readAllCategoryMenus();
 		
 		// Close the database;
@@ -59,24 +59,24 @@ public class InfectionCategoryListActivity extends Activity {
 		
 		final ArrayAdapter<CategoryMenu> adapter = new ArrayAdapter<CategoryMenu>(this, 
 				android.R.layout.simple_list_item_1, 
-				infectionCatList);
+				catMenuList);
 		
-		infectionCategoryListView.setAdapter(adapter);
+		catMenuListView.setAdapter(adapter);
 		
 		// Click handler.
-		infectionCategoryListView.setOnItemClickListener(
+		catMenuListView.setOnItemClickListener(
 				new AdapterView.OnItemClickListener(){
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, 
 					int position, long id) {
 				
-				 final CategoryMenu infectionCat = 
+				 final CategoryMenu catMenu = 
 						 (CategoryMenu) parent.getItemAtPosition(position);
 				 
 				 Intent intent = new Intent(parent.getContext(), 
 						 InfectionListActivity.class);
-				 intent.putExtra("categoryId", infectionCat.getId());
-				 intent.putExtra("categoryName", infectionCat.getName());
+				 intent.putExtra("categoryMenuId", catMenu.getId());
+				 intent.putExtra("categoryMenuName", catMenu.getName());
 				 startActivity(intent);
 			}
 			

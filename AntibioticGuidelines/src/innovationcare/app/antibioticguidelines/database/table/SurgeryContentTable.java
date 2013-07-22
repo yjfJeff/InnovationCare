@@ -18,5 +18,52 @@ package innovationcare.app.antibioticguidelines.database.table;
  *
  */
 public class SurgeryContentTable {
+	/**
+	 * Table name.
+	 */
+	public static final String TABLE_NAME = "SurgeryContentTable";
+	
+	/**
+	 * id attribute.
+	 */
+	public static final String ID = "_id";
+	
+	/**
+	 * name attribute.
+	 */
+	public static final String OPERATION = "operation";
+	
+	/**
+	 * type attribute.
+	 */
+	public static final String DURATION = "duration";
+
+	/**
+	 * type attribute.
+	 */
+	public static final String ANTIBIOTIC = "antibiotic";
+
+	/**
+	 * type attribute.
+	 */
+	public static final String COMMENTS = "comments";
+	
+	/**
+	 * categoryMenuId attribute.
+	 */
+	public static final String MENUID = "menuid";
+	
+	
+	/**
+	 * Create table SQL statement.
+	 */
+	public static final String CREATE_TABLE_STATEMENT = "create table "+ TABLE_NAME + "("
+			+ ID + " integer primary key, "
+			+ OPERATION + " text, "
+			+ DURATION + " text, "
+			+ ANTIBIOTIC + "text, "
+			+ COMMENTS + "text, "
+			+ MENUID + " integer, "
+			+ "foreign key(" + MENUID + ") REFERENCES " + MenuTable.TABLE_NAME + "(" + MenuTable.ID + "));";
 
 }

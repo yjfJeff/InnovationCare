@@ -38,7 +38,7 @@ public class CategoryMenuTable {
 	 * Create table SQL statement.
 	 */
 	public static final String CREATE_TABLE_STATEMENT = "create table "+ TABLE_NAME + "("
-			+ ID + " integer primary key autoincrement, "
+			+ ID + " integer primary key, "
 			+ NAME + " text not null);";
 	
 }

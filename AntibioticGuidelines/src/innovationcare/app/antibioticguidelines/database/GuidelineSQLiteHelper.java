@@ -7,8 +7,13 @@
  */
 package innovationcare.app.antibioticguidelines.database;
 
+import innovationcare.app.antibioticguidelines.cloud.UpdateUtils;
 import innovationcare.app.antibioticguidelines.database.table.AntibioticTable;
 import innovationcare.app.antibioticguidelines.database.table.CategoryMenuTable;
+import innovationcare.app.antibioticguidelines.database.table.InfectionContentTable;
+import innovationcare.app.antibioticguidelines.database.table.MenuTable;
+import innovationcare.app.antibioticguidelines.database.table.SurgeryContentTable;
+import innovationcare.app.antibioticguidelines.ui.MainActivity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -30,8 +35,11 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 	
 	public static final int DATABASE_VERSION = 1;
 	
+	private Context context;
+	
 	public GuidelineSQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		this.context = context;
 	}
 
 	@Override
@@ -39,6 +47,12 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		// TODO: create database table here.
 		database.execSQL(CategoryMenuTable.CREATE_TABLE_STATEMENT);
 		database.execSQL(AntibioticTable.CREATE_TABLE_STATEMENT);
+		database.execSQL(MenuTable.CREATE_TABLE_STATEMENT);
+		database.execSQL(InfectionContentTable.CREATE_TABLE_STATEMENT);
+		database.execSQL(SurgeryContentTable.CREATE_TABLE_STATEMENT);
+		
+		GuidelineDataAccess dao = new GuidelineDataAccess(context);
+		UpdateUtils.getAllDataFromCloud(dao);
 	}
 
 	@Override

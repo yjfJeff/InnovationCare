@@ -50,14 +50,14 @@ public class Menu {
 	/**
 	 * @return the _id
 	 */
-	public long get_id() {
+	public long getId() {
 		return _id;
 	}
 
 	/**
 	 * @param _id the _id to set
 	 */
-	public void set_id(long _id) {
+	public void setId(long _id) {
 		this._id = _id;
 	}
 
@@ -92,14 +92,14 @@ public class Menu {
 	/**
 	 * @return the categoryId
 	 */
-	public long getCategoryId() {
+	public long getCategoryMenuId() {
 		return categoryMenuId;
 	}
 
 	/**
 	 * @param categoryId the categoryId to set
 	 */
-	public void setCategoryId(long categoryId) {
+	public void setCategoryMenuId(long categoryId) {
 		this.categoryMenuId = categoryId;
 	}
 	

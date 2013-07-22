@@ -7,9 +7,15 @@
  */
 package innovationcare.app.antibioticguidelines.database;
 
+import innovationcare.app.antibioticguidelines.Antibiotic;
 import innovationcare.app.antibioticguidelines.InfectionContent;
 import innovationcare.app.antibioticguidelines.CategoryMenu;
+import innovationcare.app.antibioticguidelines.Menu;
+import innovationcare.app.antibioticguidelines.SurgeryContent;
 import innovationcare.app.antibioticguidelines.database.table.CategoryMenuTable;
+import innovationcare.app.antibioticguidelines.database.table.InfectionContentTable;
+import innovationcare.app.antibioticguidelines.database.table.MenuTable;
+import innovationcare.app.antibioticguidelines.database.table.SurgeryContentTable;
 import java.util.ArrayList;
 import android.content.ContentValues;
 import android.content.Context;
@@ -45,6 +51,10 @@ public class GuidelineDataAccess {
 		dbHelper.close();
 	}
 	
+	public SQLiteDatabase getWritableDatabase() {
+		return database;
+	}
+	
 	/**
 	 * Reads a list of all infection categories from the database.
 	 * 
@@ -78,20 +88,28 @@ public class GuidelineDataAccess {
 	 * 
 	 * @return
 	 */
-	public ArrayList<InfectionContent> readInfectionsByCategory(long categoryId) {
-		ArrayList<InfectionContent> infectionList = new ArrayList<InfectionContent>();
+	public ArrayList<Menu> readMenusByCategory(long categoryMenuId) {
+		final ArrayList<Menu> menuList = new ArrayList<Menu>();
 		
-		//TODO: Remove mock up data.
-		InfectionContent infection1 = new InfectionContent(1, "presentation 1", "organism 1", "antibiotics list 1");
-		infectionList.add(infection1);
+		Cursor cursor = database.rawQuery("select * from " + MenuTable.TABLE_NAME + " where " + MenuTable.CATEGORYMENUID + " = ?", new String[] {Long.toString(categoryMenuId)});
 		
-		InfectionContent infection2 = new InfectionContent(2, "presentation 2", "organism 2", "antibiotics list 2");
-		infectionList.add(infection2);
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Menu menu = new Menu();
+			menu.setId(cursor.getLong(0));
+			menu.setName(cursor.getString(1));
+			menu.setType(cursor.getString(2));
+			menu.setCategoryMenuId(cursor.getLong(3));
+			
+			menuList.add(menu);
+
+			cursor.moveToNext();
+		}
 		
-		InfectionContent infection3 = new InfectionContent(3, "presentation 3", "organism 3", "antibiotics list 3");
-		infectionList.add(infection3);
+		// Close the cursor
+		cursor.close();
 		
-		return infectionList;
+		return menuList;
 	}
 	
 	/**
@@ -99,9 +117,62 @@ public class GuidelineDataAccess {
 	 */
 	public long insertCategoryMenu(CategoryMenu catMenu) {
 		
-		// Insert the expense to the Expense table
 		ContentValues values = new ContentValues();
+		values.put(CategoryMenuTable.ID, catMenu.getId());
 		values.put(CategoryMenuTable.NAME, catMenu.getName());
+		long id = database.insert(CategoryMenuTable.TABLE_NAME, null, values);
+
+		return id;
+	}
+	
+	public long insertMenu(Menu menu) {
+		ContentValues values = new ContentValues();
+		values.put(MenuTable.ID, menu.getId());
+		values.put(MenuTable.NAME, menu.getName());
+		values.put(MenuTable.TYPE, menu.getType());
+		values.put(MenuTable.CATEGORYMENUID, menu.getCategoryMenuId());
+		
+		long _id = database.insert(MenuTable.TABLE_NAME, null, values);
+		
+		return _id;
+	}
+	
+	public long insertInfectionContent(InfectionContent infectionContent) {
+		ContentValues values = new ContentValues();
+		
+		values.put(InfectionContentTable.PRESENTATION, infectionContent.getPresentation());
+		values.put(InfectionContentTable.ORGANISM, infectionContent.getOrganism());
+		values.put(InfectionContentTable.ANTIBIOTIC, infectionContent.getAntibioticList());
+		values.put(InfectionContentTable.COMMENTS, infectionContent.getComments());
+		values.put(InfectionContentTable.MENUID, infectionContent.getMenuId());
+		
+		long _id = database.insert(InfectionContentTable.TABLE_NAME, null, values);
+		
+		return _id;
+	}
+	
+	public long insertSurgeryContent(SurgeryContent surgeryContent) {
+		ContentValues values = new ContentValues();
+		
+		values.put(SurgeryContentTable.OPERATION, surgeryContent.getOperation());
+		values.put(SurgeryContentTable.ANTIBIOTIC, surgeryContent.getAntibioticList());
+		values.put(SurgeryContentTable.DURATION, surgeryContent.getDuration());
+		values.put(SurgeryContentTable.COMMENTS, surgeryContent.getComments());
+		values.put(SurgeryContentTable.MENUID, surgeryContent.getMenuId());
+		
+		long _id = database.insert(SurgeryContentTable.TABLE_NAME, null, values);
+		
+		return _id;
+	}
+	
+	/**
+	 * Insert an Antibiotic object into the database
+	 */
+	public long insertAntibiotic(Antibiotic antibiotic) {
+		
+		ContentValues values = new ContentValues();
+		values.put(CategoryMenuTable.NAME, antibiotic.getName());
+		
 		long id = database.insert(CategoryMenuTable.TABLE_NAME, null, values);
 
 		return id;
