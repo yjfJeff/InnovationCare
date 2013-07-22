@@ -7,7 +7,7 @@
  */
 package innovationcare.app.antibioticguidelines.ui;
 
-import innovationcare.app.antibioticguidelines.InfectionCategory;
+import innovationcare.app.antibioticguidelines.CategoryMenu;
 import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.R.id;
 import innovationcare.app.antibioticguidelines.R.layout;
@@ -45,38 +45,38 @@ public class InfectionCategoryListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_infection_category_list);
 		
-		final ListView infectionCategoryListView = 
+		final ListView catMenuListView = 
 				(ListView) findViewById(R.id.infectionCategoryList);
 		
 		// Open the database.
 		dao.open();
 		
-		final ArrayList<InfectionCategory> infectionCatList = 
-				dao.readAllInfectionCategories();
+		final ArrayList<CategoryMenu> catMenuList = 
+				dao.readAllCategoryMenus();
 		
 		// Close the database;
 		dao.close();
 		
-		final ArrayAdapter<InfectionCategory> adapter = new ArrayAdapter<InfectionCategory>(this, 
+		final ArrayAdapter<CategoryMenu> adapter = new ArrayAdapter<CategoryMenu>(this, 
 				android.R.layout.simple_list_item_1, 
-				infectionCatList);
+				catMenuList);
 		
-		infectionCategoryListView.setAdapter(adapter);
+		catMenuListView.setAdapter(adapter);
 		
 		// Click handler.
-		infectionCategoryListView.setOnItemClickListener(
+		catMenuListView.setOnItemClickListener(
 				new AdapterView.OnItemClickListener(){
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, 
 					int position, long id) {
 				
-				 final InfectionCategory infectionCat = 
-						 (InfectionCategory) parent.getItemAtPosition(position);
+				 final CategoryMenu catMenu = 
+						 (CategoryMenu) parent.getItemAtPosition(position);
 				 
 				 Intent intent = new Intent(parent.getContext(), 
 						 InfectionListActivity.class);
-				 intent.putExtra("categoryId", infectionCat.getId());
-				 intent.putExtra("categoryName", infectionCat.getName());
+				 intent.putExtra("categoryMenuId", catMenu.getId());
+				 intent.putExtra("categoryMenuName", catMenu.getName());
 				 startActivity(intent);
 			}
 			

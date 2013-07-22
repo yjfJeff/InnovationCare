@@ -7,9 +7,17 @@
  */
 package innovationcare.app.antibioticguidelines.ui;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
+import com.kumulos.android.jsonclient.Kumulos;
+import com.kumulos.android.jsonclient.ResponseHandler;
+
+import innovationcare.app.antibioticguidelines.CategoryMenu;
 import innovationcare.app.antibioticguidelines.R;
-import innovationcare.app.antibioticguidelines.R.layout;
-import innovationcare.app.antibioticguidelines.R.menu;
+import innovationcare.app.antibioticguidelines.cloud.UpdateUtils;
+import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -27,11 +35,18 @@ import android.view.View;
  *
  */
 public class MainActivity extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		Kumulos.initWithAPIKeyAndSecretKey("34nq1hbm7rzzjzdcn45mp74618hvfbp0", "6vynjkcq", this);
+		
+		// Create the database and populate the data for only once.
+		GuidelineDataAccess dao = new GuidelineDataAccess(this);
+		dao.open();
+		dao.close();
 	}
 
 	@Override
@@ -50,13 +65,21 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, ContactUsActivity.class);
 		startActivity(intent);
 	}
-	
+
 	public void openInfectionCategoryScreen(View v) {
 		Intent intent = new Intent(this, InfectionCategoryListActivity.class);
 		startActivity(intent);
 	}
+
 	public void openInteractionScreen(View v) {
 		Intent intent = new Intent(this, InteractionActivity.class);
 		startActivity(intent);
+	}	
+
+	public void openAntibioticListScreen(View v) {
+		Intent intent = new Intent(this, AntibioticListActivity.class);
+		startActivity(intent);
 	}
+	
+	
 }

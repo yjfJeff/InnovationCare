@@ -40,4 +40,8 @@
     <string name="title_activity_interaction">Interaction</string>
 	<string name="forward">Forward</string>
 	<string name="back">Back</string>
+    <string name="title_activity_antibiotic_list">AntibioticListActivity</string>
+    <string name="presentation_label_text">Presentation</string>
+    <string name="organism_label_text">Organism</string>
+    <string name="antibiotic_list_label_text">Antibiotics</string>
 </resources>

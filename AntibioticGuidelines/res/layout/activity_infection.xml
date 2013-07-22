@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/presentationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/presentation_label_text" />
+    
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    
+    
+    <TextView
+        android:id="@+id/presentationDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+    <!-- Likely organism -->
+        <TextView
+        android:id="@+id/organismLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/organism_label_text" />
+    
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    
+    
+    <TextView
+        android:id="@+id/organismDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+    
+    <!-- antibiotic list -->
+    <TextView
+        android:id="@+id/antibioticListLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/antibiotic_list_label_text" />
+    
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    
+    <TextView
+        android:id="@+id/antibioticListDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+</LinearLayout>
