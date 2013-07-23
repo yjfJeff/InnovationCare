@@ -44,22 +44,13 @@ public class Antibiotic {
 	 * The link for an antibiotic.
 	 */
 	private String infoLink2;
-	
-	
-	
-	public Antibiotic(long id, String name, String link1, String link2) {
-		this._id = id;
-		this.name = name;
-		this.infoLink1 = link1;
-		this.infoLink2 = link2;
-	}
 
 
 
 	/**
 	 * @return the _id
 	 */
-	public long getId() {
+	public long get_id() {
 		return _id;
 	}
 
@@ -68,7 +59,7 @@ public class Antibiotic {
 	/**
 	 * @param _id the _id to set
 	 */
-	public void setId(long _id) {
+	public void set_id(long _id) {
 		this._id = _id;
 	}
 
@@ -126,5 +117,11 @@ public class Antibiotic {
 		this.infoLink2 = infoLink2;
 	}
 	
-	// TODO. Getter and Setter methods.
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(name);
+		
+		return builder.toString();
+	}
 }

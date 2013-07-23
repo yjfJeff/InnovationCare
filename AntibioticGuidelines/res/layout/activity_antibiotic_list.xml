@@ -9,7 +9,7 @@
     tools:context=".AntibioticListActivity" >
 
     <ListView 
-        android:id="@+id/categoryList"
+        android:id="@+id/AntibioticList" 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
