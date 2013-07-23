@@ -12,6 +12,7 @@ import innovationcare.app.antibioticguidelines.InfectionContent;
 import innovationcare.app.antibioticguidelines.CategoryMenu;
 import innovationcare.app.antibioticguidelines.Menu;
 import innovationcare.app.antibioticguidelines.SurgeryContent;
+import innovationcare.app.antibioticguidelines.database.table.AntibioticTable;
 import innovationcare.app.antibioticguidelines.database.table.CategoryMenuTable;
 import innovationcare.app.antibioticguidelines.database.table.InfectionContentTable;
 import innovationcare.app.antibioticguidelines.database.table.MenuTable;
@@ -185,4 +186,54 @@ public class GuidelineDataAccess {
 		return id;
 	}
 	
+	/**
+	 * Reads a list of all antibiotics from the database.
+	 * 
+	 * @return A list of the <code>Antibiotic</code> objects.
+	 */
+	public ArrayList<Antibiotic> readAllAntibiotics() {
+		final ArrayList<Antibiotic> AntibioticList = 
+				new ArrayList<Antibiotic>();
+		
+		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + "," + AntibioticTable.NAME + " from " + AntibioticTable.TABLE_NAME, new String[] {});
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Antibiotic antibiotic = new Antibiotic();
+			antibiotic.set_id(cursor.getLong(0));
+			antibiotic.setName(cursor.getString(1));
+
+			AntibioticList.add(antibiotic);
+
+			cursor.moveToNext();
+		}
+		
+		// Close the cursor
+		cursor.close();
+		
+		return AntibioticList;
+	}
+	
+	/**
+	 * Reads an antibiotic from the database.
+	 * 
+	 * @return An instance of the <code>Antibiotic</code> objects.
+	 */
+	public Antibiotic readAntibiotic(String id) {
+		
+		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + "," + AntibioticTable.NAME + "," + AntibioticTable.INFO_LINK_ONE + "," + AntibioticTable.INFO_LINK_TWO + " from " + 
+		AntibioticTable.TABLE_NAME + " where " + AntibioticTable.ID + " = ?", new String[] {id});
+		cursor.moveToFirst();
+			
+		Antibiotic antibiotic = new Antibiotic();
+		antibiotic.set_id(cursor.getLong(0));
+		antibiotic.setName(cursor.getString(1));
+		antibiotic.setInfoLink1(cursor.getString(2));
+		antibiotic.setInfoLink2(cursor.getString(3));
+
+		
+		// Close the cursor
+		cursor.close();
+		
+		return antibiotic;
+	}
 }

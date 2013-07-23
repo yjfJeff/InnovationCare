@@ -13,9 +13,12 @@ import innovationcare.app.antibioticguidelines.database.table.CategoryMenuTable;
 import innovationcare.app.antibioticguidelines.database.table.InfectionContentTable;
 import innovationcare.app.antibioticguidelines.database.table.MenuTable;
 import innovationcare.app.antibioticguidelines.database.table.SurgeryContentTable;
+import innovationcare.app.antibioticguidelines.ui.MainActivity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 
 /*
  * Modification History
@@ -29,7 +32,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 
-	public static final String DATABASE_NAME = "AntibioticApp.db";
+	public static final String DATABASE_NAME="AntibioticApp.db";
 
 	public static final int DATABASE_VERSION = 1;
 
@@ -37,11 +40,6 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 
 	public GuidelineSQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-		this.context = context;
-	}
-
-	public GuidelineSQLiteHelper(Context context, int version) {
-		super(context, DATABASE_NAME, null, version);
 		this.context = context;
 	}
 
@@ -53,23 +51,24 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		database.execSQL(MenuTable.CREATE_TABLE_STATEMENT);
 		database.execSQL(InfectionContentTable.CREATE_TABLE_STATEMENT);
 		database.execSQL(SurgeryContentTable.CREATE_TABLE_STATEMENT);
+
 		GuidelineDataAccess dao = new GuidelineDataAccess(context);
 		UpdateUtils.getAllDataFromCloud(dao);
+
+		ContentValues values = new ContentValues();
+		values.put(AntibioticTable.NAME, "test");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+
+		values.put(AntibioticTable.NAME, "test2");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
 	}
+
 	@Override
-	public void onDowngrade (SQLiteDatabase db, int oldVersion, int newVersion){
-		//DO NOTHING!! DO NOT DELETE
-	}
-	@Override
-	public void onUpgrade(SQLiteDatabase database, int oldVersion,
-			int newVersion) {
-		//RECREATE DATABASE
-		database.execSQL(CategoryMenuTable.DROP_TABLE_STATEMENT);
-		database.execSQL(AntibioticTable.DROP_TABLE_STATEMENT);
-		database.execSQL(MenuTable.DROP_TABLE_STATEMENT);
-		database.execSQL(InfectionContentTable.DROP_TABLE_STATEMENT);
-		database.execSQL(SurgeryContentTable.DROP_TABLE_STATEMENT);
-		this.onCreate(database);
+	public void onUpgrade(SQLiteDatabase datebase,  int oldVersion, int newVersion) {
+		// Do nothing.
 	}
 
 }
