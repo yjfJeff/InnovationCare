@@ -9,15 +9,15 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" 
-       >
+        android:theme="@style/AppTheme" >
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.MainActivity"
             android:label="@string/app_name" >
@@ -55,17 +55,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity" />
         </activity>
-        
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.InteractionActivity"
-            android:label="@string/title_activity_interaction" 
-            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" >
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_interaction"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
         </activity>
-        
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.InfectionActivity"
             android:label="@string/app_name"
@@ -74,7 +72,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" />
         </activity>
-        
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity"
             android:label="@string/title_activity_antibiotic_list"
@@ -82,6 +79,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticLinkActivity"
+            android:label="@string/title_activity_display_antibiotic_link" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticActivity"
+            android:label="@string/title_activity_display_antibiotic" >
         </activity>
     </application>
 
