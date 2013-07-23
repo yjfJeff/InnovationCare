@@ -19,6 +19,8 @@ public class DisplayAntibioticLinkActivity extends Activity {
 		
 		Intent intent = getIntent();
 		String URL = intent.getStringExtra("URL");
+		String name = intent.getStringExtra("name");
+		setTitle(name);
 		if(!URL.contains("http://"))
 			URL = "http://" + URL;
 		final WebView wv = (WebView) findViewById(R.id.wvinteraction);
