@@ -39,11 +39,18 @@ public class GuidelineDataAccess {
 	
 	private GuidelineSQLiteHelper dbHelper;
 	private SQLiteDatabase database;
-
+	
 	public GuidelineDataAccess(Context context) {
 		dbHelper = new GuidelineSQLiteHelper(context);
 	}
-
+	public GuidelineDataAccess(Context context,boolean onUprade) {
+		int version;
+		dbHelper = new GuidelineSQLiteHelper(context);
+		database = dbHelper.getWritableDatabase();
+		version=database.getVersion();
+		dbHelper.close();
+		dbHelper = new GuidelineSQLiteHelper(context,version+1);
+	}
 	public void open() {
 		database = dbHelper.getWritableDatabase();
 	}

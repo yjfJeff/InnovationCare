@@ -33,7 +33,11 @@ public class CategoryMenuTable {
 	 * name attribute.
 	 */
 	public static final String NAME = "name";
-	
+	/**
+	 * Drop table SQL statement.
+	 */
+	public static final String DROP_TABLE_STATEMENT = "drop table "
+			+ TABLE_NAME + ";";
 	/**
 	 * Create table SQL statement.
 	 */
