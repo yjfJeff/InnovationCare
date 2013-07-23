@@ -14,6 +14,7 @@ import innovationcare.app.antibioticguidelines.database.table.InfectionContentTa
 import innovationcare.app.antibioticguidelines.database.table.MenuTable;
 import innovationcare.app.antibioticguidelines.database.table.SurgeryContentTable;
 import innovationcare.app.antibioticguidelines.ui.MainActivity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -53,6 +54,16 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		
 		GuidelineDataAccess dao = new GuidelineDataAccess(context);
 		UpdateUtils.getAllDataFromCloud(dao);
+		
+		ContentValues values = new ContentValues();
+		values.put(AntibioticTable.NAME, "test");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+
+		values.put(AntibioticTable.NAME, "test2");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
 	}
 
 	@Override
