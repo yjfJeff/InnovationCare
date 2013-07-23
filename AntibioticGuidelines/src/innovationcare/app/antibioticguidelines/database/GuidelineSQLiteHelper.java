@@ -19,7 +19,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-
 /*
  * Modification History
  * --------------------
@@ -32,7 +31,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 
-	public static final String DATABASE_NAME="AntibioticApp.db";
+	public static final String DATABASE_NAME = "AntibioticApp.db";
 
 	public static final int DATABASE_VERSION = 1;
 
@@ -40,6 +39,11 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 
 	public GuidelineSQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		this.context = context;
+	}
+
+	public GuidelineSQLiteHelper(Context context, int version) {
+		super(context, DATABASE_NAME, null, version);
 		this.context = context;
 	}
 
@@ -67,8 +71,21 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase datebase,  int oldVersion, int newVersion) {
-		// Do nothing.
+	public void onDowngrade(SQLiteDatabase database, int oldVersion,
+			int newVersion) {
+		// DO NOTHING!
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase database, int oldVersion,
+			int newVersion) {
+		// TODO: create database table here.
+		database.execSQL(CategoryMenuTable.DROP_TABLE_STATEMENT);
+		database.execSQL(AntibioticTable.DROP_TABLE_STATEMENT);
+		database.execSQL(MenuTable.DROP_TABLE_STATEMENT);
+		database.execSQL(InfectionContentTable.DROP_TABLE_STATEMENT);
+		database.execSQL(SurgeryContentTable.DROP_TABLE_STATEMENT);
+		this.onCreate(database);
 	}
 
 }
