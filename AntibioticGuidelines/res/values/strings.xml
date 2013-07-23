@@ -3,13 +3,12 @@
 
     <string name="app_name">Antimicrobial Guidelines</string>
     <string name="action_settings">Settings</string>
-    <string name="treatment_infection_button_text">Empirical treatment of infections</string>
+    <string name="infection_reference_button_text">Infection Reference</string>
     <string name="prophylaxis_infection_button_text">Procedural prophylaxis of infections</string>
     <string name="Antimicrobial_renal_dysfunction_button_text">Antimicrobial for renal dysfunction</string>
     <string name="antimicrobial_reference_button_text">Antimicrobial references</string>
     <string name="interaction_check_button_text">Interaction Check</string>
     <string name="dose_calculator_button_text">Dose Calculator</string>
-    <string name="notification_centre_button_text">Notification Centre</string>
     <string name="contact_us_button_text">Contact Us</string>
     <string name="copyright_info">Copyright© 2013 Innovation Care. All Rights Reserved.</string>
     <string name="company_name">Innovation Care</string>
@@ -35,5 +34,15 @@
     <string name="IPCN">IPCN on duty bleep 122</string>
     <string name="laboratory">Laboratory</string>
     <string name="tele_laboratory">Tele:(221) 4450/4470</string>
-
+    <string name="title_activity_infection_list">InfectionListActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_interaction">Interaction</string>
+	<string name="forward">Forward</string>
+	<string name="back">Back</string>
+    <string name="title_activity_antibiotic_list">AntibioticListActivity</string>
+    <string name="presentation_label_text">Presentation</string>
+    <string name="organism_label_text">Organism</string>
+    <string name="antibiotic_list_label_text">Antibiotics</string>
+    <string name="search_button_text">Search</string>
+    <string name="update_button_text">Update</string>
 </resources>
