@@ -6,136 +6,134 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <TableLayout
-        android:id="@+id/buttonTable"
-        android:layout_width="fill_parent"
+    <Button
+        android:id="@+id/infectionRefButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:shrinkColumns="*" >
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundy_button"
+        android:onClick="openInfectionCategoryScreen"
+        android:singleLine="false"
+        android:text="@string/infection_reference_button_text" />
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+    <Button
+        android:id="@+id/antimicroRefButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/infectionRefButton"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/roundy_button"
+        android:onClick="openAntibioticListScreen"
+        android:singleLine="false"
+        android:text="@string/antimicrobial_reference_button_text" />
 
-            <!-- "Empirical treatment of infections" button -->
+    <Button
+        android:id="@+id/interactCheckButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/antimicroRefButton"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/roundy_button"
+        android:onClick="openInteractionScreen"
+        android:singleLine="false"
+        android:text="@string/interaction_check_button_text" />
 
-            <Button
-                android:id="@+id/treatInfectionButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:singleLine="false"
-                android:text="@string/treatment_infection_button_text"
-                android:onClick="openInfectionCategoryScreen" />
-
-            <!-- "procedural prophylaxis of infections" button -->
-
-            <Button
-                android:id="@+id/prophyInfectionButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:singleLine="false"
-                android:text="@string/prophylaxis_infection_button_text" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/renalDysfucButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:singleLine="false"
-                android:text="@string/Antimicrobial_renal_dysfunction_button_text" />
-
-            <Button
-                android:id="@+id/antimicroRefButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:singleLine="false"
-                android:text="@string/antimicrobial_reference_button_text"
-                android:onClick="openAntibioticListScreen" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/interactCheckButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:singleLine="false"
-                android:text="@string/interaction_check_button_text" 
-                android:onClick="openInteractionScreen"/>
-
-            <Button
-                android:id="@+id/doseCalButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:singleLine="false"
-                android:text="@string/dose_calculator_button_text" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/notiCentreButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:singleLine="false"
-                android:text="@string/notification_centre_button_text" />
-
-            <Button
-                android:id="@+id/contactUsButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/roundy_button"
-                android:gravity="center"
-                android:singleLine="false"
-                android:text="@string/contact_us_button_text"
-                android:onClick="openContactUsScreen" />
-        </TableRow>
-    </TableLayout>
-
-    <TextView
-        android:id="@+id/copyrightInfoTextView"
-        android:linksClickable="true"
+    <Button
+        android:id="@+id/doseCalButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/interactCheckButton"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/roundy_button"
+        android:singleLine="false"
+        android:text="@string/dose_calculator_button_text" />
+    
+    
+     <ImageButton
+        android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/copyright_info"
-        android:layout_marginBottom="5dp" />
+        android:layout_alignBottom="@+id/notiCentreButton"
+        android:layout_below="@+id/doseCalButton"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@+id/notiCentreButton"
+        android:background="@drawable/circle_button"
+        android:src="@drawable/search"
+        android:text="@string/search_button_text"
+        android:textSize="18sp" />
 
-    <TextView
+    <ImageButton
+        android:id="@+id/notiCentreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/copyrightInfoTextView"
+        android:layout_below="@+id/doseCalButton"
         android:layout_centerHorizontal="true"
-        android:text="@string/company_name"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/circle_button"
+        android:src="@drawable/update"
+        android:text="@string/update_button_text"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/contactUsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/notiCentreButton"
+        android:layout_below="@+id/doseCalButton"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/notiCentreButton"
+        android:background="@drawable/circle_button"
+        android:src="@drawable/contact_us"
+        android:text="@string/contact_us_button_text"
         android:textSize="18sp"
-        android:layout_marginBottom="5dp"/>
+        android:onClick="openContactUsScreen" />
+
+    <TextView
+        android:id="@+id/uploadProfileImageButtonLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/searchButton"
+        android:layout_below="@+id/searchButton"
+        android:layout_marginLeft="10dp"
+        android:text="@string/search_button_text"
+        android:textColor="#70706C"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/setBudgetButtonLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notiCentreButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/update_button_text"
+        android:textColor="#70706C"
+        android:textSize="12sp" />
+    
+    <TextView
+        android:id="@+id/aboutUsButtonLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactUsButton"
+        android:layout_alignLeft="@+id/contactUsButton"
+        android:layout_marginLeft="10dp"
+        android:text="@string/contact_us_button_text"
+        android:textColor="#70706C"
+        android:textSize="12sp" />
 
 </RelativeLayout>

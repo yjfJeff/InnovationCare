@@ -34,6 +34,7 @@ public class UpdateUtils {
 		getAllCategoryMenusFromCloud(dao);
 		getAllMenusFromCloud(dao);
 	}
+	
 	public static void getAllCategoryMenusFromCloud(final GuidelineDataAccess dao) {
 		HashMap<String, String> param = new HashMap<String, String>();
 		Kumulos.call("getAllCategoryMenus", param, new ResponseHandler() {
@@ -57,8 +58,8 @@ public class UpdateUtils {
 	
 	
 	public static void getAllMenusFromCloud(final GuidelineDataAccess dao) {
-		HashMap<String, String> param = new HashMap<String, String>();
-		Kumulos.call("getAllMenus", param, new ResponseHandler() {
+		HashMap<String, String> param2 = new HashMap<String, String>();
+		Kumulos.call("getAllMenus", param2, new ResponseHandler() {
 			@Override
 			public void didCompleteWithResult(Object result) {
 				
