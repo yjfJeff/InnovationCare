@@ -56,8 +56,8 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		database.execSQL(InfectionContentTable.CREATE_TABLE_STATEMENT);
 		database.execSQL(SurgeryContentTable.CREATE_TABLE_STATEMENT);
 
-		GuidelineDataAccess dao = new GuidelineDataAccess(context);
-		UpdateUtils.getAllDataFromCloud(dao);
+//		GuidelineDataAccess dao = new GuidelineDataAccess(context);
+//		UpdateUtils.getAllDataFromCloud(dao);
 
 		ContentValues values = new ContentValues();
 		values.put(AntibioticTable.NAME, "test");

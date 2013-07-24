@@ -57,9 +57,9 @@ public class InfectionCategoryListActivity extends Activity {
 		// Close the database;
 		dao.close();
 		
-		final ArrayAdapter<CategoryMenu> adapter = new ArrayAdapter<CategoryMenu>(this, 
-				android.R.layout.simple_list_item_1, 
-				catMenuList);
+		final MenuListAdapter<CategoryMenu> adapter = 
+				new MenuListAdapter<CategoryMenu>(
+						this, R.layout.list_item_row, catMenuList);
 		
 		catMenuListView.setAdapter(adapter);
 		

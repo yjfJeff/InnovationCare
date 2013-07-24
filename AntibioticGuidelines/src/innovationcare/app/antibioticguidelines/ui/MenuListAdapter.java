@@ -8,10 +8,17 @@
  */
 package innovationcare.app.antibioticguidelines.ui;
 
-import java.util.List;
+import innovationcare.app.antibioticguidelines.R;
 
+import java.util.List;
 import android.content.Context;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /*
  * Modification History
@@ -22,8 +29,8 @@ import android.widget.ArrayAdapter;
  * @author I73933
  *
  */
-public class MenuListAdapter<T> extends ArrayAdapter {
-
+public class MenuListAdapter<T> extends ArrayAdapter<T> {
+	
 	/**
 	 * @param context
 	 * @param textViewResourceId
@@ -31,6 +38,32 @@ public class MenuListAdapter<T> extends ArrayAdapter {
 	 */
 	public MenuListAdapter(Context context, int textViewResourceId, List objects) {
 		super(context, textViewResourceId, objects);
+	}
+	
+	public View getView(int position, View convertView, ViewGroup parent) {
+		
+		if (convertView == null) {
+			LayoutInflater inf = (LayoutInflater) getContext().getSystemService(
+					Context.LAYOUT_INFLATER_SERVICE);
+			convertView = inf.inflate(R.layout.list_item_row, null);
+		}
+		
+		RelativeLayout listItemRow = 
+				(RelativeLayout) convertView.findViewById(R.id.listItemRow);
+		
+		if (position % 2 == 1) {
+			listItemRow.setBackgroundColor(Color.parseColor("#66CCFF"));
+		} else {
+			listItemRow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+		}
+		
+		TextView menuListContentView = 
+				(TextView) convertView.findViewById(R.id.menuListContentView);
+		
+		menuListContentView.setText(getItem(position).toString());
+		
+		return convertView;
+		
 	}
 
 }
