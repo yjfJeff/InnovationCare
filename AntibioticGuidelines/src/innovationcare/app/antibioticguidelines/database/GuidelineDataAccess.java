@@ -179,7 +179,11 @@ public class GuidelineDataAccess {
 	public long insertAntibiotic(Antibiotic antibiotic) {
 		
 		ContentValues values = new ContentValues();
-		values.put(CategoryMenuTable.NAME, antibiotic.getName());
+		values.put(AntibioticTable.NAME, antibiotic.getName());
+		values.put(AntibioticTable.INFO_LINK_ONE, antibiotic.getInfoLink1());
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, antibiotic.getInfoLink1Title());
+		values.put(AntibioticTable.INFO_LINK_TWO, antibiotic.getInfoLink2());
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, antibiotic.getInfoLink2Title());
 		
 		long id = database.insert(CategoryMenuTable.TABLE_NAME, null, values);
 
@@ -220,7 +224,7 @@ public class GuidelineDataAccess {
 	 */
 	public Antibiotic readAntibiotic(String id) {
 		
-		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + "," + AntibioticTable.NAME + "," + AntibioticTable.INFO_LINK_ONE + "," + AntibioticTable.INFO_LINK_TWO + " from " + 
+		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + "," + AntibioticTable.NAME + "," + AntibioticTable.INFO_LINK_ONE + "," + AntibioticTable.INFO_LINK_ONE_TITLE + "," + AntibioticTable.INFO_LINK_TWO_TITLE + "," + AntibioticTable.INFO_LINK_TWO + " from " + 
 		AntibioticTable.TABLE_NAME + " where " + AntibioticTable.ID + " = ?", new String[] {id});
 		cursor.moveToFirst();
 			
@@ -228,8 +232,9 @@ public class GuidelineDataAccess {
 		antibiotic.set_id(cursor.getLong(0));
 		antibiotic.setName(cursor.getString(1));
 		antibiotic.setInfoLink1(cursor.getString(2));
-		antibiotic.setInfoLink2(cursor.getString(3));
-
+		antibiotic.setInfoLink1Title(cursor.getString(3));
+		antibiotic.setInfoLink2Title(cursor.getString(4));
+		antibiotic.setInfoLink2(cursor.getString(5));
 		
 		// Close the cursor
 		cursor.close();

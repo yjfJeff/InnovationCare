@@ -62,11 +62,14 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(AntibioticTable.NAME, "test");
 		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
 		database.insert(AntibioticTable.TABLE_NAME, null, values);
 
 		values.put(AntibioticTable.NAME, "test2");
 		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
 		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
 		database.insert(AntibioticTable.TABLE_NAME, null, values);
 	}
 

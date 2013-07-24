@@ -57,18 +57,18 @@ public class DisplayAntibioticActivity extends Activity {
         }
         
 		layout = (LinearLayout)findViewById(R.id.Link1);
-        if ( antibiotic.getInfoLink1() != null ) {
+        if ( antibiotic.getInfoLink1Title() != null ) {
         	TextView tv = (TextView)findViewById(R.id.Link1text);
-        	tv.setText(antibiotic.getInfoLink1());
+        	tv.setText(antibiotic.getInfoLink1Title());
         }
         else {
         	layout.setVisibility(layout.GONE);
         }
         
         layout = (LinearLayout)findViewById(R.id.Link2);
-        if ( antibiotic.getInfoLink2() != null ) {
+        if ( antibiotic.getInfoLink2Title() != null ) {
         	TextView tv = (TextView)findViewById(R.id.Link2text);
-        	tv.setText(antibiotic.getInfoLink2());
+        	tv.setText(antibiotic.getInfoLink2Title());
         }
         else {
         	layout.setVisibility(layout.GONE);
