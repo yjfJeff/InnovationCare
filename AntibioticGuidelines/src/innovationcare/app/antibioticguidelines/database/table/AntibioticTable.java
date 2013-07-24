@@ -46,9 +46,18 @@ public class AntibioticTable {
 	 */
 	public static final String INFO_LINK_ONE = "infoLink1";
 	/**
+	 * The infoLink1 title.
+	 */
+	public static final String INFO_LINK_ONE_TITLE = "infoLink1Title";
+	/**
 	 * The infoLink2 attribute.
 	 */
 	public static final String INFO_LINK_TWO = "infoLink2";
+	
+	/**
+	 * The infoLink2 title.
+	 */
+	public static final String INFO_LINK_TWO_TITLE = "infoLink2Title";
 	
 	/**
 	 * Drop table SQL statement.
@@ -65,5 +74,7 @@ public class AntibioticTable {
 			+ SUMMARY_PDF + " blob, "
 			+ RENAL_PDF + " blob, "
 			+ INFO_LINK_ONE + " text, "
-			+ INFO_LINK_TWO + " text);";
+			+ INFO_LINK_ONE_TITLE + " text,"
+			+ INFO_LINK_TWO + " text,"
+			+ INFO_LINK_TWO_TITLE + " text);";
 }
