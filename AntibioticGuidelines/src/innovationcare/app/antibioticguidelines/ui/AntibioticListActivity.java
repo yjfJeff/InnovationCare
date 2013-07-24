@@ -56,8 +56,8 @@ public class AntibioticListActivity extends Activity {
 		// Close the database;
 		dao.close();
 		
-		final ArrayAdapter<Antibiotic> adapter = new ArrayAdapter<Antibiotic>(this, 
-				android.R.layout.simple_list_item_1, 
+		final MenuListAdapter<Antibiotic> adapter = new MenuListAdapter<Antibiotic>(this, 
+				R.layout.list_item_row, 
 				AntibioticList);
 		
 		infectionCategoryListView.setAdapter(adapter);
