@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity"
-            android:label="@string/app_name"
+            android:label="@string/activity_category_menu_title"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >

@@ -99,9 +99,10 @@ public class UpdateUtils {
 					String organism = objectDetails.get("organism").toString();
 					String antibiotic = objectDetails.get("antibiotic")
 							.toString();
+					String menuId = objectDetails.get("menuId").toString();
 					innovationcare.app.antibioticguidelines.InfectionContent newInfectionContent = new innovationcare.app.antibioticguidelines.InfectionContent(
 							Long.parseLong(id), presentation, organism,
-							antibiotic);
+							antibiotic, Long.parseLong(menuId));
 					dao.insertInfectionContent(newInfectionContent);
 				}
 				dao.close();

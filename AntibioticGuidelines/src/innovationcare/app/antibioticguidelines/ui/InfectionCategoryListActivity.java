@@ -69,7 +69,6 @@ public class InfectionCategoryListActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, 
 					int position, long id) {
-				
 				 final CategoryMenu catMenu = 
 						 (CategoryMenu) parent.getItemAtPosition(position);
 				 

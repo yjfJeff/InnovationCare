@@ -70,9 +70,9 @@ public class InfectionListActivity extends Activity {
 				dao.readMenusByCategory(categoryMenuId);
 		dao.close();
 		
-		final ArrayAdapter<innovationcare.app.antibioticguidelines.Menu> adapter = 
-				new ArrayAdapter<innovationcare.app.antibioticguidelines.Menu>(
-						this, android.R.layout.simple_list_item_1, menuList);
+		final MenuListAdapter<innovationcare.app.antibioticguidelines.Menu> adapter = 
+				new MenuListAdapter<innovationcare.app.antibioticguidelines.Menu>(
+						this, R.layout.list_item_row, menuList);
 		
 		menuListView.setAdapter(adapter);
 		

@@ -7,9 +7,17 @@
  */
 package innovationcare.app.antibioticguidelines.ui;
 
+import java.util.ArrayList;
+
+import innovationcare.app.antibioticguidelines.InfectionContent;
 import innovationcare.app.antibioticguidelines.R;
+import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /*
@@ -29,17 +37,66 @@ public class InfectionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_infection);
 		
-		TextView presentationDisplay = 
-				(TextView) findViewById(R.id.presentationDisplay);
+		Intent intent = getIntent();
+		String menuName = intent.getStringExtra("menuName");
+		setTitle(menuName);
 		
-		TextView organismDisplay = 
-				(TextView) findViewById(R.id.organismDisplay);
+		// TODO
+		final ListView infectionContentListView = 
+				(ListView) findViewById(R.id.infectionContentList);
+//		GuidelineDataAccess dao = new GuidelineDataAccess(this);
+//		// Open the database.
+//		dao.open();
+//		
+//		// Read all menus from a certain category.
+//		ArrayList<innovationcare.app.antibioticguidelines.Menu> menuList = 
+//				dao.readMenusByCategory(categoryMenuId);
+//		dao.close();
+		ArrayList<InfectionContent> infectionContentList = new ArrayList<InfectionContent>();
 		
-		TextView antibioticListDisplay = 
-				(TextView) findViewById(R.id.antibioticListDisplay);
+		InfectionContent newInfectionContent1 = new InfectionContent(
+				1, 
+				"presentation mock up data", 
+				"organism mock up data", "antimicrobial 1, antimicrobial 2, antimicrobial 3, antimicrobial 4", 
+				1);
+		InfectionContent newInfectionContent2 = new InfectionContent(
+				2, 
+				"presentation mock up data", 
+				"organism mock up data", "antimicrobial 1, antimicrobial 2, antimicrobial 3, antimicrobial 4", 
+				2);
 		
-		presentationDisplay.setText("presentation mock up data");
-		organismDisplay.setText("organism mock up data");
-		antibioticListDisplay.setText("antimicrobial 1, antimicrobial 2, antimicrobial 3, antimicrobial 4");
+		InfectionContent newInfectionContent3 = new InfectionContent(
+				3, 
+				"presentation mock up data", 
+				"organism mock up data", "antimicrobial 1, antimicrobial 2, antimicrobial 3, antimicrobial 4", 
+				3);
+		infectionContentList.add(newInfectionContent1);
+		infectionContentList.add(newInfectionContent2);
+		infectionContentList.add(newInfectionContent3);
+		
+		final InfectionContentListAdapter<InfectionContent> adapter = 
+				new InfectionContentListAdapter<InfectionContent>(
+						this, R.layout.infection_content_list_row, infectionContentList);
+		
+		infectionContentListView.setAdapter(adapter);
+		
+//		// Click handler.
+//		infectionContentListView.setOnItemClickListener(
+//				new AdapterView.OnItemClickListener(){
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view, 
+//					int position, long id) {
+//						
+//				 final innovationcare.app.antibioticguidelines.Menu menu = 
+//						 (innovationcare.app.antibioticguidelines.Menu) parent.getItemAtPosition(position);
+//						 
+//				 Intent intent = new Intent(parent.getContext(), 
+//						 InfectionActivity.class);
+//				 intent.putExtra("menuId", menu.getId());
+//				 intent.putExtra("menuName", menu.getName());
+//				 startActivity(intent);
+//			}
+//					
+//		});
 	}
 }
