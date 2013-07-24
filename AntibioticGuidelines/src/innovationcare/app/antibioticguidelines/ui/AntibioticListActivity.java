@@ -42,7 +42,7 @@ public class AntibioticListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_antibiotic_list);
-        setTitle("Antibiotic List");
+        setTitle("Antimicrobial List");
 
         final ListView infectionCategoryListView = 
 				(ListView) findViewById(R.id.AntibioticList);

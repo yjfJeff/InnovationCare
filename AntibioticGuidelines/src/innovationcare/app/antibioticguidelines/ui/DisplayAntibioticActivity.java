@@ -33,7 +33,7 @@ public class DisplayAntibioticActivity extends Activity {
 		
 		// Close the database;
 		dao.close();
-		
+		setTitle(antibiotic.getName());
 		LinearLayout layout = (LinearLayout)findViewById(R.id.PDF1);
 		String filename = antibiotic.getName()+".pdf";
 		File tempFile = new File( Environment.getExternalStorageDirectory().getAbsolutePath(), filename );
@@ -98,7 +98,7 @@ public class DisplayAntibioticActivity extends Activity {
 			else {
 				intent.putExtra("URL", antibiotic.getInfoLink2());
 			}
-			
+			intent.putExtra("name", antibiotic.getName());
 			startActivity(intent);
 		}
 		

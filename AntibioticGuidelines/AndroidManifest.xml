@@ -82,11 +82,19 @@
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticLinkActivity"
-            android:label="@string/title_activity_display_antibiotic_link" >
+            android:label="@string/title_activity_display_antibiotic_link"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" />
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticActivity"
-            android:label="@string/title_activity_display_antibiotic" >
+            android:label="@string/title_activity_display_antibiotic" 
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" />
         </activity>
     </application>
 
