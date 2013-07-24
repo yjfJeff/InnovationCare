@@ -53,7 +53,11 @@ public class InfectionContentTable {
 	 */
 	public static final String MENUID = "menuid";
 	
-	
+	/**
+	 * Drop table SQL statement.
+	 */
+	public static final String DROP_TABLE_STATEMENT = "drop table "
+			+ TABLE_NAME + ";";
 	/**
 	 * Create table SQL statement.
 	 */

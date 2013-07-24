@@ -50,7 +50,11 @@ public class AntibioticTable {
 	 */
 	public static final String INFO_LINK_TWO = "infoLink2";
 	
-	
+	/**
+	 * Drop table SQL statement.
+	 */
+	public static final String DROP_TABLE_STATEMENT = "drop table "
+			+ TABLE_NAME + ";";
 	
 	/**
 	 * Create table SQL statement.

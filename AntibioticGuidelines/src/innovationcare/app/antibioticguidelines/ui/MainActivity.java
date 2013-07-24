@@ -7,22 +7,16 @@
  */
 package innovationcare.app.antibioticguidelines.ui;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
-import com.kumulos.android.jsonclient.Kumulos;
-import com.kumulos.android.jsonclient.ResponseHandler;
-
-import innovationcare.app.antibioticguidelines.CategoryMenu;
 import innovationcare.app.antibioticguidelines.R;
-import innovationcare.app.antibioticguidelines.cloud.UpdateUtils;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+
+import com.kumulos.android.jsonclient.Kumulos;
 
 /*
  * Modification History
@@ -32,17 +26,18 @@ import android.view.View;
  */
 /**
  * The activity class for the home screen.
- *
+ * 
  */
 public class MainActivity extends Activity {
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		Kumulos.initWithAPIKeyAndSecretKey("34nq1hbm7rzzjzdcn45mp74618hvfbp0", "6vynjkcq", this);
-		
+		Kumulos.initWithAPIKeyAndSecretKey("34nq1hbm7rzzjzdcn45mp74618hvfbp0",
+				"6vynjkcq", this);
+
 		// Create the database and populate the data for only once.
 		GuidelineDataAccess dao = new GuidelineDataAccess(this);
 		dao.open();
@@ -61,7 +56,7 @@ public class MainActivity extends Activity {
 	 * screen.
 	 * 
 	 */
-	public void openContactUsScreen (View v) {
+	public void openContactUsScreen(View v) {
 		Intent intent = new Intent(this, ContactUsActivity.class);
 		startActivity(intent);
 	}
@@ -74,12 +69,18 @@ public class MainActivity extends Activity {
 	public void openInteractionScreen(View v) {
 		Intent intent = new Intent(this, InteractionActivity.class);
 		startActivity(intent);
-	}	
+	}
 
 	public void openAntibioticListScreen(View v) {
 		Intent intent = new Intent(this, AntibioticListActivity.class);
 		startActivity(intent);
 	}
-	
-	
+
+	public void onUpgrade(View v) {
+		GuidelineDataAccess dao = new GuidelineDataAccess(this, true);
+		dao.open();
+		dao.close();
+		new AlertDialog.Builder(this).setTitle("Upgrade").setMessage("Upgrade Done!").setPositiveButton("OK",null).show();
+	}
+
 }
