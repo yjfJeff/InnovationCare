@@ -6,7 +6,7 @@
  * Copyright Innovation Care 2013, all rights reserved.
  *
  */
-package innovationcare.app.antibioticguidelines.ui;
+package innovationcare.app.antibioticguidelines.ui.adapter;
 
 import innovationcare.app.antibioticguidelines.R;
 

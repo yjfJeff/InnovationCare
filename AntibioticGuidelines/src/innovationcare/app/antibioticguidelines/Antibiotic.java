@@ -60,7 +60,7 @@ public class Antibiotic {
 	/**
 	 * @return the _id
 	 */
-	public long get_id() {
+	public long getId() {
 		return _id;
 	}
 
@@ -69,7 +69,7 @@ public class Antibiotic {
 	/**
 	 * @param _id the _id to set
 	 */
-	public void set_id(long _id) {
+	public void setId(long _id) {
 		this._id = _id;
 	}
 

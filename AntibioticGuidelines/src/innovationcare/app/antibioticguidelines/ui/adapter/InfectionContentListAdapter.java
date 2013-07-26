@@ -6,7 +6,7 @@
  * Copyright Innovation Care 2013, all rights reserved.
  *
  */
-package innovationcare.app.antibioticguidelines.ui;
+package innovationcare.app.antibioticguidelines.ui.adapter;
 
 import innovationcare.app.antibioticguidelines.InfectionContent;
 import innovationcare.app.antibioticguidelines.R;
@@ -67,11 +67,16 @@ public class InfectionContentListAdapter<T> extends ArrayAdapter<T> {
 		
 		TextView antibioticListDisplay = 
 				(TextView) convertView.findViewById(R.id.antibioticListDisplay);
+		
+		TextView commentsDisplay = 
+				(TextView) convertView.findViewById(R.id.commentsDisplay);
+		
 		InfectionContent infectionContent = (InfectionContent) getItem(position);
 		
 		presentationDisplay.setText(infectionContent.getPresentation());
 		organismDisplay.setText(infectionContent.getOrganism());
 		antibioticListDisplay.setText(infectionContent.getAntibioticList());
+		commentsDisplay.setText(infectionContent.getComments());
 		
 		return convertView;
 		

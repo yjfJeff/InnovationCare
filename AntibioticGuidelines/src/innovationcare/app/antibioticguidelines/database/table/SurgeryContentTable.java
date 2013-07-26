@@ -63,8 +63,8 @@ public class SurgeryContentTable {
 	 */
 	public static final String CREATE_TABLE_STATEMENT = "create table "
 			+ TABLE_NAME + "(" + ID + " integer primary key, " + OPERATION
-			+ " text, " + DURATION + " text, " + ANTIBIOTIC + "text, "
-			+ COMMENTS + "text, " + MENUID + " integer, " + "foreign key("
+			+ " text, " + DURATION + " text, " + ANTIBIOTIC + " text, "
+			+ COMMENTS + " text, " + MENUID + " integer, " + "foreign key("
 			+ MENUID + ") REFERENCES " + MenuTable.TABLE_NAME + "("
 			+ MenuTable.ID + "));";
 

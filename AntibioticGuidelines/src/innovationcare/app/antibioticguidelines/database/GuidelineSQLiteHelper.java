@@ -42,8 +42,8 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		this.context = context;
 	}
 
-	public GuidelineSQLiteHelper(Context context, int version) {
-		super(context, DATABASE_NAME, null, version);
+	public GuidelineSQLiteHelper(Context context, int newDatabaseVersion) {
+		super(context, DATABASE_NAME, null, newDatabaseVersion);
 		this.context = context;
 	}
 
@@ -82,7 +82,7 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldVersion,
 			int newVersion) {
-		// TODO: create database table here.
+		
 		database.execSQL(CategoryMenuTable.DROP_TABLE_STATEMENT);
 		database.execSQL(AntibioticTable.DROP_TABLE_STATEMENT);
 		database.execSQL(MenuTable.DROP_TABLE_STATEMENT);

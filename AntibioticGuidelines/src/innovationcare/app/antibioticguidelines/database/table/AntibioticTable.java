@@ -69,7 +69,7 @@ public class AntibioticTable {
 	 * Create table SQL statement.
 	 */
 	public static final String CREATE_TABLE_STATEMENT = "create table "+ TABLE_NAME + "("
-			+ ID + " integer primary key autoincrement, "
+			+ ID + " integer primary key, "
 			+ NAME + " text unique not null, "
 			+ SUMMARY_PDF + " blob, "
 			+ RENAL_PDF + " blob, "

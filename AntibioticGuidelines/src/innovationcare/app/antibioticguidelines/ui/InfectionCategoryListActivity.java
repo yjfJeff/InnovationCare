@@ -12,6 +12,7 @@ import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.R.id;
 import innovationcare.app.antibioticguidelines.R.layout;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
+import innovationcare.app.antibioticguidelines.ui.adapter.MenuListAdapter;
 
 import java.util.ArrayList;
 

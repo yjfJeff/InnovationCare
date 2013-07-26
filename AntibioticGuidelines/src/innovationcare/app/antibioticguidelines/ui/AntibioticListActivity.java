@@ -10,6 +10,7 @@ package innovationcare.app.antibioticguidelines.ui;
 import innovationcare.app.antibioticguidelines.Antibiotic;
 import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
+import innovationcare.app.antibioticguidelines.ui.adapter.MenuListAdapter;
 
 import java.util.ArrayList;
 
@@ -74,7 +75,7 @@ public class AntibioticListActivity extends Activity {
 				 
 				 Intent intent = new Intent(parent.getContext(), 
 						 DisplayAntibioticActivity.class);
-				 intent.putExtra("id", String.valueOf(antibiotic.get_id()));
+				 intent.putExtra("id", String.valueOf(antibiotic.getId()));
 				 startActivity(intent);
 			}
 			
