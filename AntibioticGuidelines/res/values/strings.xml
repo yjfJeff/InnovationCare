@@ -6,12 +6,13 @@
     <string name="infection_reference_button_text">Infection Reference</string>
     <string name="prophylaxis_infection_button_text">Procedural prophylaxis of infections</string>
     <string name="Antimicrobial_renal_dysfunction_button_text">Antimicrobial for renal dysfunction</string>
-    <string name="antimicrobial_reference_button_text">Antimicrobial references</string>
+    <string name="antimicrobial_reference_button_text">A-Z of antimicrobial drugs</string>
     <string name="interaction_check_button_text">Interaction Check</string>
-    <string name="dose_calculator_button_text">Dose Calculator</string>
+    <string name="dose_calculator_button_text">Calculate a formula</string>
     <string name="contact_us_button_text">Contact Us</string>
     <string name="copyright_info">Copyright© 2013 Innovation Care. All Rights Reserved.</string>
     <string name="company_name">Innovation Care</string>
+    <string name="activity_category_menu_title">Infection References</string>
     <string name="consultant">Consultant: </string>
     <string name="tele_consultant">Tele: (221) 4450</string>
     <string name="lynda">Dr Lynda Fenelon</string>
@@ -29,6 +30,9 @@
     <string name="SVUH">Medicines Information Service SVUH</string>
     <string name="tele_pharmacy">Tele:(221)4139/3696</string>
     <string name="infection">Infection: </string>
+    <string name="operation_label_text">Operation</string>
+    <string name="duration_label_text">Duration</string>
+    <string name="antibiotic_label_text">Antibiotic</string>
     <string name="IPCNfull">Infection Prevention and Control</string>
     <string name="tele_infection">Tel (221) 3197</string>
     <string name="IPCN">IPCN on duty bleep 122</string>
@@ -42,10 +46,13 @@
     <string name="title_activity_antibiotic_list">AntibioticListActivity</string>
     <string name="presentation_label_text">Presentation</string>
     <string name="organism_label_text">Organism</string>
+    <string name="comments_label_text">Comments</string>
     <string name="antibiotic_list_label_text">Antibiotics</string>
     <string name="search_button_text">Search</string>
     <string name="update_button_text">Update</string>
+    <string name="useful_links_button_text">Useful links</string>
     <string name="title_activity_display_antibiotic_link">DisplayAntibioticLinkActivity</string>
     <string name="title_activity_display_antibiotic">DisplayAntibioticActivity</string>
+    <string name="title_activity_surgery_content">Surgery Content</string>
 
 </resources>

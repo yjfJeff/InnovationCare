@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity"
-            android:label="@string/app_name"
+            android:label="@string/activity_category_menu_title"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
@@ -90,11 +90,19 @@
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticActivity"
-            android:label="@string/title_activity_display_antibiotic" 
+            android:label="@string/title_activity_display_antibiotic"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.SurgeryContentActivity"
+            android:label="@string/title_activity_surgery_content"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" />
         </activity>
     </application>
 

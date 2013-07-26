@@ -6,7 +6,7 @@
  * Copyright Innovation Care 2013, all rights reserved.
  *
  */
-package innovationcare.app.antibioticguidelines.ui;
+package innovationcare.app.antibioticguidelines.ui.adapter;
 
 import innovationcare.app.antibioticguidelines.R;
 
@@ -52,9 +52,9 @@ public class MenuListAdapter<T> extends ArrayAdapter<T> {
 				(RelativeLayout) convertView.findViewById(R.id.listItemRow);
 		
 		if (position % 2 == 1) {
-			listItemRow.setBackgroundColor(Color.parseColor("#66CCFF"));
+			listItemRow.setBackgroundResource(R.drawable.menu_list_odd_selector);
 		} else {
-			listItemRow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+			listItemRow.setBackgroundResource(R.drawable.menu_list_even_selector);
 		}
 		
 		TextView menuListContentView = 

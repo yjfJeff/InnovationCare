@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/infectionContentListRow"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/presentationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/presentation_label_text"
+        android:textColor="#A67100"
+        android:textSize="18sp" />
+    
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator"
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    
+    
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/presentationDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+    <!-- Likely organism -->
+        <TextView
+        android:id="@+id/organismLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/organism_label_text"
+        android:textColor="#A67100"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp" />
+    
+    <!-- Separator -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    
+    
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/organismDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+    
+    <!-- antibiotic list -->
+    <TextView
+        android:id="@+id/antibioticListLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/antibiotic_list_label_text"
+        android:textColor="#A67100"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp" />
+    
+    <!-- Separator -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/antibioticListDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+    
+    
+    <!-- Comments -->
+    <TextView
+        android:id="@+id/commentsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/comments_label_text"
+        android:textColor="#A67100"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp" />
+    
+    <!-- Separator -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+    
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/commentsDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+
+</LinearLayout>

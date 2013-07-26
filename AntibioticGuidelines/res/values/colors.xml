@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="menu_item_row_odd">#E6ECF4</color>
+    <color name="menu_item_row_even">#f2f5fa</color>
+    <color name="menu_item_row_hover">#4b6e9f</color>
+    <color name="menu_item_row_selected">#afb2b7</color>
+</resources>

@@ -10,6 +10,7 @@ package innovationcare.app.antibioticguidelines.ui;
 import innovationcare.app.antibioticguidelines.Antibiotic;
 import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
+import innovationcare.app.antibioticguidelines.ui.adapter.MenuListAdapter;
 
 import java.util.ArrayList;
 
@@ -56,8 +57,8 @@ public class AntibioticListActivity extends Activity {
 		// Close the database;
 		dao.close();
 		
-		final ArrayAdapter<Antibiotic> adapter = new ArrayAdapter<Antibiotic>(this, 
-				android.R.layout.simple_list_item_1, 
+		final MenuListAdapter<Antibiotic> adapter = new MenuListAdapter<Antibiotic>(this, 
+				R.layout.list_item_row, 
 				AntibioticList);
 		
 		infectionCategoryListView.setAdapter(adapter);
@@ -74,7 +75,7 @@ public class AntibioticListActivity extends Activity {
 				 
 				 Intent intent = new Intent(parent.getContext(), 
 						 DisplayAntibioticActivity.class);
-				 intent.putExtra("id", String.valueOf(antibiotic.get_id()));
+				 intent.putExtra("id", String.valueOf(antibiotic.getId()));
 				 startActivity(intent);
 			}
 			

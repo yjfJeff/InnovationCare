@@ -70,12 +70,14 @@ public class InfectionContent {
 	 *                       an infection.
 	 */
 	public InfectionContent(long _id, String presentation, 
-			String organism, String antibioticList) {
+			String organism, String antibioticList, String comments, long menuId) {
 		
 		this._id = _id;
 		this.presentation = presentation;
 		this.organism = organism;
 		this.antibioticList = antibioticList;
+		this.comments = comments;
+		this.menuId = menuId;
 	}
 
 	/**

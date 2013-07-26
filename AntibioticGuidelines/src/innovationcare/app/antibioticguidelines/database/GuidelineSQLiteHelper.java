@@ -42,8 +42,8 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		this.context = context;
 	}
 
-	public GuidelineSQLiteHelper(Context context, int version) {
-		super(context, DATABASE_NAME, null, version);
+	public GuidelineSQLiteHelper(Context context, int newDatabaseVersion) {
+		super(context, DATABASE_NAME, null, newDatabaseVersion);
 		this.context = context;
 	}
 
@@ -62,11 +62,14 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(AntibioticTable.NAME, "test");
 		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
 		database.insert(AntibioticTable.TABLE_NAME, null, values);
 
 		values.put(AntibioticTable.NAME, "test2");
 		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
 		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
 		database.insert(AntibioticTable.TABLE_NAME, null, values);
 	}
 
@@ -79,7 +82,7 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldVersion,
 			int newVersion) {
-		// TODO: create database table here.
+		
 		database.execSQL(CategoryMenuTable.DROP_TABLE_STATEMENT);
 		database.execSQL(AntibioticTable.DROP_TABLE_STATEMENT);
 		database.execSQL(MenuTable.DROP_TABLE_STATEMENT);

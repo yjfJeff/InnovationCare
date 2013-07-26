@@ -6,17 +6,54 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
+    <RelativeLayout 
+        android:layout_marginTop="20dp"
+        android:id="@+id/applogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <LinearLayout 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"
+        	android:layout_marginLeft="5dp"
+        	android:layout_alignParentLeft="true">
+            
+            <TextView 
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="Antimicrobial Guideline"
+        		android:textSize="20sp"
+        		android:textColor="#3B14AF"/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="St Vincent's Hospital"
+        		android:textSize="10sp"
+        		android:textColor="#886ED7"/>
+        </LinearLayout>
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_marginRight="5dp"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentRight="true"
+        	android:src="@drawable/logo"/>
+        
+    </RelativeLayout>
+    
     <Button
         android:id="@+id/infectionRefButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/roundy_button"
         android:onClick="openInfectionCategoryScreen"
+        android:layout_below="@+id/applogo"
         android:singleLine="false"
         android:text="@string/infection_reference_button_text" />
 

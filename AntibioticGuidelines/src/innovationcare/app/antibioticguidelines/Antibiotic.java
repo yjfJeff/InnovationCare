@@ -41,16 +41,26 @@ public class Antibiotic {
 	private String infoLink1;
 	
 	/**
+	 * The link title for an antibiotic.
+	 */
+	private String infoLink1Title;
+	
+	/**
 	 * The link for an antibiotic.
 	 */
 	private String infoLink2;
+	
+	/**
+	 * The link title for an antibiotic.
+	 */
+	private String infoLink2Title;
 
 
 
 	/**
 	 * @return the _id
 	 */
-	public long get_id() {
+	public long getId() {
 		return _id;
 	}
 
@@ -59,7 +69,7 @@ public class Antibiotic {
 	/**
 	 * @param _id the _id to set
 	 */
-	public void set_id(long _id) {
+	public void setId(long _id) {
 		this._id = _id;
 	}
 
@@ -123,5 +133,41 @@ public class Antibiotic {
 		builder.append(name);
 		
 		return builder.toString();
+	}
+
+
+
+	/**
+	 * @return the infoLink1Title
+	 */
+	public String getInfoLink1Title() {
+		return infoLink1Title;
+	}
+
+
+
+	/**
+	 * @param infoLink1Title the infoLink1Title to set
+	 */
+	public void setInfoLink1Title(String infoLink1Title) {
+		this.infoLink1Title = infoLink1Title;
+	}
+
+
+
+	/**
+	 * @return the infoLink2Title
+	 */
+	public String getInfoLink2Title() {
+		return infoLink2Title;
+	}
+
+
+
+	/**
+	 * @param infoLink2Title the infoLink2Title to set
+	 */
+	public void setInfoLink2Title(String infoLink2Title) {
+		this.infoLink2Title = infoLink2Title;
 	}
 }

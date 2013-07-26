@@ -65,8 +65,8 @@ public class InfectionContentTable {
 			+ ID + " integer primary key, "
 			+ PRESENTATION + " text, "
 			+ ORGANISM + " text, "
-			+ ANTIBIOTIC + "text, "
-			+ COMMENTS + "text, "
+			+ ANTIBIOTIC + " text, "
+			+ COMMENTS + " text, "
 			+ MENUID + " integer, "
 			+ "foreign key(" + MENUID + ") REFERENCES " + MenuTable.TABLE_NAME + "(" + MenuTable.ID + "));";
 	

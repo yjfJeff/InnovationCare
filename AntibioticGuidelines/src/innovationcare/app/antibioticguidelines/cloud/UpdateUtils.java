@@ -32,8 +32,8 @@ public class UpdateUtils {
 	public static void getAllDataFromCloud(final GuidelineDataAccess dao) {
 		getAllCategoryMenusFromCloud(dao);
 		getAllMenusFromCloud(dao);
-	//	getAllInfectionsFromCloud(dao);
-	//	getAllSurgeriesFromCloud(dao);
+		getAllInfectionContentsFromCloud(dao);
+		getAllSurgeryContentsFromCloud(dao);
 	}
 
 	public static void getAllCategoryMenusFromCloud(
@@ -71,8 +71,7 @@ public class UpdateUtils {
 					String id = objectDetails.get("menuID").toString();
 					String name = objectDetails.get("name").toString();
 					String type = objectDetails.get("type").toString();
-					String categoryMenuId = objectDetails.get("categoryId")
-							.toString();
+					String categoryMenuId = objectDetails.get("categoryMenuId").toString();
 					innovationcare.app.antibioticguidelines.Menu newMenu = new innovationcare.app.antibioticguidelines.Menu(
 							Long.parseLong(id), name, type, Long
 									.parseLong(categoryMenuId));
@@ -83,9 +82,9 @@ public class UpdateUtils {
 		});
 	}
 
-	public static void getAllInfectionsFromCloud(final GuidelineDataAccess dao) {
+	public static void getAllInfectionContentsFromCloud(final GuidelineDataAccess dao) {
 		HashMap<String, String> param2 = new HashMap<String, String>();
-		Kumulos.call("getAllInfections", param2, new ResponseHandler() {
+		Kumulos.call("getAllInfectionContents", param2, new ResponseHandler() {
 			@Override
 			public void didCompleteWithResult(Object result) {
 
@@ -93,15 +92,18 @@ public class UpdateUtils {
 				dao.open();
 				for (Object object : resultSet) {
 					LinkedHashMap<String, Object> objectDetails = (LinkedHashMap<String, Object>) object;
-					String id = objectDetails.get("infectionID").toString();
+					String id = objectDetails.get("infectionContentID").toString();
 					String presentation = objectDetails.get("presentation")
 							.toString();
 					String organism = objectDetails.get("organism").toString();
 					String antibiotic = objectDetails.get("antibiotic")
 							.toString();
+					String comments = objectDetails.get("comments")
+							.toString();
+					String menuId = objectDetails.get("menuId").toString();
 					innovationcare.app.antibioticguidelines.InfectionContent newInfectionContent = new innovationcare.app.antibioticguidelines.InfectionContent(
 							Long.parseLong(id), presentation, organism,
-							antibiotic);
+							antibiotic, comments, Long.parseLong(menuId));
 					dao.insertInfectionContent(newInfectionContent);
 				}
 				dao.close();
@@ -109,9 +111,9 @@ public class UpdateUtils {
 		});
 	}
 
-	public static void getAllSurgeriesFromCloud(final GuidelineDataAccess dao) {
+	public static void getAllSurgeryContentsFromCloud(final GuidelineDataAccess dao) {
 		HashMap<String, String> param2 = new HashMap<String, String>();
-		Kumulos.call("getAllSurgeries", param2, new ResponseHandler() {
+		Kumulos.call("getAllSurgeryContents", param2, new ResponseHandler() {
 			@Override
 			public void didCompleteWithResult(Object result) {
 
@@ -119,15 +121,15 @@ public class UpdateUtils {
 				dao.open();
 				for (Object object : resultSet) {
 					LinkedHashMap<String, Object> objectDetails = (LinkedHashMap<String, Object>) object;
-					String id = objectDetails.get("sugeryID").toString();
+					String id = objectDetails.get("surgeryContentID").toString();
 					String operation = objectDetails.get("operation").toString();
 					String antibiotic = objectDetails.get("antibiotic").toString();
 					String duration = objectDetails.get("duration").toString();
-					String comment = objectDetails.get("comment").toString();
+					String comments = objectDetails.get("comments").toString();
 					String menuId = objectDetails.get("menuId").toString();
 					innovationcare.app.antibioticguidelines.SurgeryContent newInfectionContent = new innovationcare.app.antibioticguidelines.SurgeryContent(
 							Long.parseLong(id), operation, 
-							antibiotic,duration,comment,Long.parseLong(menuId));
+							antibiotic,duration,comments,Long.parseLong(menuId));
 					dao.insertSurgeryContent(newInfectionContent);
 				}
 				dao.close();

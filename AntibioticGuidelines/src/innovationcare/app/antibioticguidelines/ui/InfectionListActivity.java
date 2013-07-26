@@ -13,6 +13,7 @@ import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.R.id;
 import innovationcare.app.antibioticguidelines.R.layout;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
+import innovationcare.app.antibioticguidelines.ui.adapter.MenuListAdapter;
 
 import java.util.ArrayList;
 
@@ -70,9 +71,9 @@ public class InfectionListActivity extends Activity {
 				dao.readMenusByCategory(categoryMenuId);
 		dao.close();
 		
-		final ArrayAdapter<innovationcare.app.antibioticguidelines.Menu> adapter = 
-				new ArrayAdapter<innovationcare.app.antibioticguidelines.Menu>(
-						this, android.R.layout.simple_list_item_1, menuList);
+		final MenuListAdapter<innovationcare.app.antibioticguidelines.Menu> adapter = 
+				new MenuListAdapter<innovationcare.app.antibioticguidelines.Menu>(
+						this, R.layout.list_item_row, menuList);
 		
 		menuListView.setAdapter(adapter);
 		
@@ -85,12 +86,29 @@ public class InfectionListActivity extends Activity {
 						
 				 final innovationcare.app.antibioticguidelines.Menu menu = 
 						 (innovationcare.app.antibioticguidelines.Menu) parent.getItemAtPosition(position);
-						 
-				 Intent intent = new Intent(parent.getContext(), 
-						 InfectionActivity.class);
-				 intent.putExtra("menuId", menu.getId());
-				 intent.putExtra("menuName", menu.getName());
-				 startActivity(intent);
+				 
+				 /**
+				  * Check the type to determine to open the infection content list,
+				  * or surgery content list.
+				  */
+				 String type = menu.getType();
+				 
+				 if ("infection".equalsIgnoreCase(type)) {
+					 Intent intent = new Intent(parent.getContext(), 
+							 InfectionActivity.class);
+					 intent.putExtra("menuId", menu.getId());
+					 intent.putExtra("menuName", menu.getName());
+					 startActivity(intent);
+				 } else if ("surgery".equalsIgnoreCase(type)) {
+					 Intent intent = new Intent(parent.getContext(), 
+							 SurgeryContentActivity.class);
+					 intent.putExtra("menuId", menu.getId());
+					 intent.putExtra("menuName", menu.getName());
+					 startActivity(intent);
+				 } else {
+					 // Do nothing. The type not supported. Couldn't open.
+				 }
+				 
 			}
 					
 		});
