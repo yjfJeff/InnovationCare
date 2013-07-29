@@ -8,11 +8,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AntibioticListActivity" >
 
+
+    
     <ListView 
         android:id="@+id/AntibioticList" 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
     </ListView>
-
+    
+        <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:text="Button" />
+    
 </RelativeLayout>

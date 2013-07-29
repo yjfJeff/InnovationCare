@@ -56,6 +56,83 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		database.execSQL(InfectionContentTable.CREATE_TABLE_STATEMENT);
 		database.execSQL(SurgeryContentTable.CREATE_TABLE_STATEMENT);
 
+<<<<<<< HEAD
+=======
+//		GuidelineDataAccess dao = new GuidelineDataAccess(context);
+//		UpdateUtils.getAllDataFromCloud(dao);
+
+		ContentValues values = new ContentValues();
+		values.put(AntibioticTable.ID, 1);
+		values.put(AntibioticTable.NAME, "test");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+
+		values.put(AntibioticTable.ID, 2);
+		values.put(AntibioticTable.NAME, "test2");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+		values.put(AntibioticTable.ID, 3);
+		values.put(AntibioticTable.NAME, "test3");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+		values.put(AntibioticTable.ID, 4);
+		values.put(AntibioticTable.NAME, "test4");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+		values.put(AntibioticTable.ID, 5);
+		values.put(AntibioticTable.NAME, "test5");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+		values.put(AntibioticTable.ID, 6);
+		values.put(AntibioticTable.NAME, "test6");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+		values.put(AntibioticTable.ID, 7);
+		values.put(AntibioticTable.NAME, "test7");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+		values.put(AntibioticTable.ID, 8);
+		values.put(AntibioticTable.NAME, "test8");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+		values.put(AntibioticTable.ID, 9);
+		values.put(AntibioticTable.NAME, "test9");
+		values.put(AntibioticTable.INFO_LINK_ONE, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_TWO, "www.google.ie");
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, "google");
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, "ie");
+		database.insert(AntibioticTable.TABLE_NAME, null, values);
+		
+>>>>>>> APP banner
 	}
 
 	@Override

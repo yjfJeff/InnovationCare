@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--
+        <color name="menu_item_row_odd">#93acff</color>
+    <color name="menu_item_row_even">#4b6e9f</color>
+    <color name="menu_item_row_hover">#183a67</color>
+    <color name="menu_item_row_selected">#183a67</color>
+    -->
+     
     <color name="menu_item_row_odd">#E6ECF4</color>
     <color name="menu_item_row_even">#f2f5fa</color>
     <color name="menu_item_row_hover">#4b6e9f</color>
-    <color name="menu_item_row_selected">#afb2b7</color>
+    <color name="menu_item_row_selected">#4b6e9f</color>
+    
+    <color name="titlebackgroundcolor">#4b6e9f</color>
+    <color name="titletextcolor">#FFFF00</color>
 </resources>

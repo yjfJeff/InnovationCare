@@ -32,8 +32,7 @@
             android:name="innovationcare.app.antibioticguidelines.ui.ContactUsActivity"
             android:label="@string/app_name"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
@@ -42,8 +41,7 @@
             android:name="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity"
             android:label="@string/activity_category_menu_title"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
