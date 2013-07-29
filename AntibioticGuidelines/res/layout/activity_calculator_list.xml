@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CalculatorListActivity" >
+
+    <Button
+        android:id="@+id/GFRButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/roundy_button"
+        android:onClick="openGFR"
+        android:singleLine="false"
+        android:text="@string/GFR" />
+
+    <Button
+        android:id="@+id/MDRDButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GFRButton"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundy_button"
+        android:onClick="openMdrd"
+        android:singleLine="false"
+        android:text="@string/MDRD" />
+
+    <Button
+        android:id="@+id/ABWButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MDRDButton"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundy_button"
+        android:onClick="openABW"
+        android:singleLine="false"
+        android:text="@string/ABW" />
+
+    <Button
+        android:id="@+id/CCButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ABWButton"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundy_button"
+        android:onClick="opencc"
+        android:singleLine="false"
+        android:text="@string/CreatinieClearance" />
+
+</RelativeLayout>
