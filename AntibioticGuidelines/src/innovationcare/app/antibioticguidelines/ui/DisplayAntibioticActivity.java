@@ -46,7 +46,7 @@ public class DisplayAntibioticActivity extends Activity {
         }
         
 		layout = (LinearLayout)findViewById(R.id.PDF2);
-		filename = antibiotic.getName()+"RDH.pdf";
+		filename = antibiotic.getName()+" RDH 2009.pdf";
 		tempFile = new File( Environment.getExternalStorageDirectory().getAbsolutePath(), filename );
         if ( tempFile.exists() ) {
         	TextView tv = (TextView)findViewById(R.id.PDF2text);
@@ -57,7 +57,7 @@ public class DisplayAntibioticActivity extends Activity {
         }
         
 		layout = (LinearLayout)findViewById(R.id.Link1);
-        if ( antibiotic.getInfoLink1Title() != null ) {
+        if ( !antibiotic.getInfoLink1Title().isEmpty() ) {
         	TextView tv = (TextView)findViewById(R.id.Link1text);
         	tv.setText(antibiotic.getInfoLink1Title());
         }
@@ -66,7 +66,7 @@ public class DisplayAntibioticActivity extends Activity {
         }
         
         layout = (LinearLayout)findViewById(R.id.Link2);
-        if ( antibiotic.getInfoLink2Title() != null ) {
+        if ( !antibiotic.getInfoLink2Title().isEmpty() ) {
         	TextView tv = (TextView)findViewById(R.id.Link2text);
         	tv.setText(antibiotic.getInfoLink2Title());
         }
