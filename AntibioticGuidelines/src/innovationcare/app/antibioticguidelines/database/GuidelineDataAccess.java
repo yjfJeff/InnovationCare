@@ -247,7 +247,7 @@ public class GuidelineDataAccess {
 		values.put(AntibioticTable.INFO_LINK_TWO, antibiotic.getInfoLink2());
 		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, antibiotic.getInfoLink2Title());
 
-		long id = database.insert(CategoryMenuTable.TABLE_NAME, null, values);
+		long id = database.insert(AntibioticTable.TABLE_NAME, null, values);
 
 		return id;
 	}
