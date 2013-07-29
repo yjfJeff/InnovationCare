@@ -8,10 +8,10 @@
 package innovationcare.app.antibioticguidelines.ui;
 
 import innovationcare.app.antibioticguidelines.R;
+import innovationcare.app.antibioticguidelines.UpgradeTask;
 import innovationcare.app.antibioticguidelines.cloud.UpdateUtils;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,19 +39,20 @@ public class MainActivity extends Activity {
 
 		Kumulos.initWithAPIKeyAndSecretKey("z1y3x0sjyvsqwykcmpq0fd05rhcxr7zx",
 				"r5dsh8d8", this);
-		
+
 		// Store the update info in the shared preferences.
 		SharedPreferences settings = getSharedPreferences(
 				"AntibioticAppSettings", 0);
-		boolean isUpdateRequired = settings.getBoolean("isUpdateRequired", true);
+		boolean isUpdateRequired = settings
+				.getBoolean("isUpdateRequired", true);
 		if (isUpdateRequired) {
 
 			GuidelineDataAccess dao = new GuidelineDataAccess(MainActivity.this);
-			UpdateUtils.getAllDataFromCloud(dao);	
-			
+			UpdateUtils.getAllDataFromCloud(dao);
+
 			dao.close();
 
-			//Resetting to false.
+			// Resetting to false.
 			SharedPreferences.Editor editor = settings.edit();
 			editor.putBoolean("isUpdateRequired", false);
 			// Commit the edits!
@@ -86,17 +87,19 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
+	public void openCalculatorListScreen(View v) {
+		Intent intent = new Intent(this, CalculatorListActivity.class);
+		startActivity(intent);
+	}
+
 	public void openAntibioticListScreen(View v) {
 		Intent intent = new Intent(this, AntibioticListActivity.class);
 		startActivity(intent);
 	}
 
 	public void onUpgrade(View v) {
-		GuidelineDataAccess dao = new GuidelineDataAccess(this);
-		dao.upgrade();
-		
-        UpdateUtils.getAllDataFromCloud(dao);
-		new AlertDialog.Builder(this).setTitle("Upgrade").setMessage("Upgrade Done!").setPositiveButton("OK",null).show();
+		UpgradeTask upgrade = new UpgradeTask(this);
+		upgrade.execute();
 	}
 
 }

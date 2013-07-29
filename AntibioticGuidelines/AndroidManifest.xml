@@ -18,6 +18,12 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <service android:name="innovationcare.app.antibioticguidelines.Upgrade" >
+            <intent-filter>
+                <action android:name="innovationcare.app.antibioticguidelines.Upgrade" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.MainActivity"
             android:label="@string/app_name" >
@@ -76,7 +82,6 @@
             android:name="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity"
             android:label="@string/title_activity_antibiotic_list"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity" >
-            <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
         </activity>
@@ -103,6 +108,34 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CalculatorListActivity"
+            android:label="@string/title_activity_calculator_list" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CockroftActivity"
+            android:label="@string/title_activity_cockroft" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.MdrdActivity"
+            android:label="@string/title_activity_mdrd" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.AWBActivity"
+			android:label="@string/title_activity_awb" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CcListActivity"
+            android:label="@string/title_activity_cc_list" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CcnoActivity"
+            android:label="@string/title_activity_ccno" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CcobActivity"
+            android:label="@string/title_activity_ccob" >
         </activity>
     </application>
 

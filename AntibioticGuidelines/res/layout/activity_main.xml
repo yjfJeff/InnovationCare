@@ -87,14 +87,14 @@
         android:id="@+id/doseCalButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_below="@+id/interactCheckButton"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/roundy_button"
+        android:onClick="openCalculatorListScreen"
         android:singleLine="false"
         android:text="@string/dose_calculator_button_text" />
-    
     
      <ImageButton
         android:id="@+id/searchButton"
