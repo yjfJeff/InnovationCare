@@ -97,8 +97,13 @@
         android:onClick="openCalculatorListScreen"
         android:singleLine="false"
         android:text="@string/dose_calculator_button_text" />
+<<<<<<< HEAD
 
     <ImageButton
+=======
+    
+     <ImageButton
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -18,6 +18,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /*
  * Modification History
@@ -56,8 +57,8 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 		database.execSQL(InfectionContentTable.CREATE_TABLE_STATEMENT);
 		database.execSQL(SurgeryContentTable.CREATE_TABLE_STATEMENT);
 
-//		GuidelineDataAccess dao = new GuidelineDataAccess(context);
-//		UpdateUtils.getAllDataFromCloud(dao);
+		// GuidelineDataAccess dao = new GuidelineDataAccess(context);
+		// UpdateUtils.getAllDataFromCloud(dao);
 
 //		ContentValues values = new ContentValues();
 //		values.put(AntibioticTable.ID, 1);
@@ -135,19 +136,26 @@ public class GuidelineSQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onDowngrade(SQLiteDatabase database, int oldVersion,
 			int newVersion) {
-		// DO NOTHING!
+		// DO NOTHING!!
+
+		Log.e("U", "" + database.getVersion());
+		database.setVersion(oldVersion);
+		Log.e("C", "" + database.getVersion());
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldVersion,
 			int newVersion) {
-		
+		Log.e("F", "" + oldVersion);
 		database.execSQL(CategoryMenuTable.DROP_TABLE_STATEMENT);
 		database.execSQL(AntibioticTable.DROP_TABLE_STATEMENT);
 		database.execSQL(MenuTable.DROP_TABLE_STATEMENT);
 		database.execSQL(InfectionContentTable.DROP_TABLE_STATEMENT);
 		database.execSQL(SurgeryContentTable.DROP_TABLE_STATEMENT);
 		this.onCreate(database);
+		database.setVersion(newVersion);
+
+		Log.e("K", "" + newVersion + database.getVersion());
 	}
 
 }

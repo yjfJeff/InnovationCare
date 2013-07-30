@@ -5,9 +5,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+<<<<<<< HEAD
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+=======
+import android.view.View;
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 
 public class CalculatorListActivity extends Activity {
 
@@ -26,7 +30,11 @@ public class CalculatorListActivity extends Activity {
 		startActivity(intent);
 	}
 	public void openMdrd(View v) {
+<<<<<<< HEAD
 		Intent intent = new Intent(this, MdrdActivity.class);
+=======
+		Intent intent = new Intent(this, MDActivity.class);
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 		startActivity(intent);
 	}
 	public void opencc(View v) {
@@ -37,6 +45,7 @@ public class CalculatorListActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+<<<<<<< HEAD
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -54,5 +63,10 @@ public class CalculatorListActivity extends Activity {
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
+=======
+		getMenuInflater().inflate(R.menu.calculator_list, menu);
+		return true;
+	}
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 
 }

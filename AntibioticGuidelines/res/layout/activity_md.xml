@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".CockroftActivity" >
+    tools:context=".MDActivity" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -15,11 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-<<<<<<< HEAD
-        android:src="@drawable/grf" />
-=======
-        android:src="@drawable/cockroft" />
->>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
+        android:src="@drawable/md" />
 
     <EditText
         android:id="@+id/age"
@@ -45,29 +41,6 @@
         android:text="@string/age"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText
-        android:id="@+id/mess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_alignRight="@+id/imageView1"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="@string/messvalue" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_below="@+id/age"
-        android:text="@string/mess"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
         android:id="@+id/sc"
@@ -79,7 +52,7 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="number" 
-        android:hint="@string/csvalue">"
+        android:hint="@string/csvalue">
 
         <requestFocus />
     </EditText>
@@ -89,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageView1"
-        android:layout_below="@+id/mess"
+        android:layout_below="@+id/age"
         android:text="@string/serum"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -104,8 +77,6 @@
             android:id="@+id/female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/gender"
-            android:layout_toRightOf="@+id/textView3"
             android:text="@string/female" />
 
         <RadioButton
@@ -115,7 +86,29 @@
             android:checked="true"
             android:text="@string/male" />
     </RadioGroup>
+    <RadioGroup
+        android:id="@+id/race"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/gender"
+        android:layout_below="@+id/sc"
+        android:layout_toRightOf="@+id/gender"
+        android:layout_marginLeft="30dp" >
 
+        <RadioButton
+            android:id="@+id/american"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/american" />
+
+        <RadioButton
+            android:id="@+id/nonamerican"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nonamerican" />
+    </RadioGroup>
+    
     <Button
         android:id="@+id/CCButton"
         android:layout_width="match_parent"

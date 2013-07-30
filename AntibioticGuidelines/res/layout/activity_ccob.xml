@@ -15,7 +15,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
+<<<<<<< HEAD
         android:src="@drawable/grf" />
+=======
+        android:src="@drawable/ob" />
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 
     <EditText
         android:id="@+id/age"
@@ -119,7 +123,11 @@
         android:layout_alignLeft="@+id/gender"
         android:layout_below="@+id/gender"
         android:background="@drawable/roundy_button"
+<<<<<<< HEAD
         android:onClick="calculte"
+=======
+        android:onClick="calculate"
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
         android:singleLine="false"
         android:text="@string/calculate" />
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="innovationcare.app.antibioticguidelines"
@@ -153,4 +154,147 @@
         </activity>
     </application>
 
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="innovationcare.app.antibioticguidelines"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <service android:name="innovationcare.app.antibioticguidelines.Upgrade" >
+            <intent-filter>
+                <action android:name="innovationcare.app.antibioticguidelines.Upgrade" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.ContactUsActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity"
+            android:label="@string/activity_category_menu_title"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.InfectionListActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.InteractionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_interaction"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.InfectionActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity"
+            android:label="@string/title_activity_antibiotic_list"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity" >
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticLinkActivity"
+            android:label="@string/title_activity_display_antibiotic_link"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticActivity"
+            android:label="@string/title_activity_display_antibiotic"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.SurgeryContentActivity"
+            android:label="@string/title_activity_surgery_content"
+            android:parentActivityName="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="innovationcare.app.antibioticguidelines.ui.InfectionListActivity" />
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CalculatorListActivity"
+            android:label="@string/title_activity_calculator_list" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CockroftActivity"
+            android:label="@string/title_activity_cockroft" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.AWBActivity"
+            android:label="@string/title_activity_awb" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CcListActivity"
+            android:label="@string/title_activity_cc_list" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CcnoActivity"
+            android:label="@string/title_activity_ccno" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.CcobActivity"
+            android:label="@string/title_activity_ccob" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.MDActivity"
+            android:label="@string/title_activity_md" >
+        </activity>
+    </application>
+
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 </manifest>

@@ -23,7 +23,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-
 /*
  * Modification History
  * --------------------
@@ -33,7 +32,7 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * The data access object to interact with the SQLite database in the Android
  * phone.
- *
+ * 
  */
 public class GuidelineDataAccess {
 
@@ -45,15 +44,28 @@ public class GuidelineDataAccess {
 		dbHelper = new GuidelineSQLiteHelper(context);
 		this.context = context;
 	}
-	
-	public void upgrade() {
-		
-		database = dbHelper.getWritableDatabase();
-		int version = database.getVersion();
-		dbHelper.close();
-		dbHelper = new GuidelineSQLiteHelper(context, version+1);
+
+	public GuidelineDataAccess(Context context, int version) {
+		dbHelper = new GuidelineSQLiteHelper(context, version);
+		this.context = context;
 	}
-	
+
+	public void setVersion(int version) {
+		database = dbHelper.getWritableDatabase();
+		database.setVersion(version);
+	}
+
+	public int getVersion() {
+		database = dbHelper.getWritableDatabase();
+		return database.getVersion();
+	}
+
+	public void upgrade(int version) {
+
+		database = dbHelper.getWritableDatabase();
+		dbHelper = new GuidelineSQLiteHelper(context, version);
+	}
+
 	public void open() {
 		database = dbHelper.getWritableDatabase();
 	}
@@ -72,10 +84,10 @@ public class GuidelineDataAccess {
 	 * @return A list of the <code>InfectionCategory</code> objects.
 	 */
 	public ArrayList<CategoryMenu> readAllCategoryMenus() {
-		final ArrayList<CategoryMenu> catMenuList = 
-				new ArrayList<CategoryMenu>();
+		final ArrayList<CategoryMenu> catMenuList = new ArrayList<CategoryMenu>();
 
-		Cursor cursor = database.rawQuery("select * from " + CategoryMenuTable.TABLE_NAME, new String[] {});
+		Cursor cursor = database.rawQuery("select * from "
+				+ CategoryMenuTable.TABLE_NAME, new String[] {});
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			CategoryMenu catMenu = new CategoryMenu();
@@ -102,7 +114,9 @@ public class GuidelineDataAccess {
 	public ArrayList<Menu> readMenusByCategory(long categoryMenuId) {
 		final ArrayList<Menu> menuList = new ArrayList<Menu>();
 
-		Cursor cursor = database.rawQuery("select * from " + MenuTable.TABLE_NAME + " where " + MenuTable.CATEGORYMENUID + " = ?", new String[] {Long.toString(categoryMenuId)});
+		Cursor cursor = database.rawQuery("select * from "
+				+ MenuTable.TABLE_NAME + " where " + MenuTable.CATEGORYMENUID
+				+ " = ?", new String[] { Long.toString(categoryMenuId) });
 
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
@@ -124,10 +138,12 @@ public class GuidelineDataAccess {
 	}
 
 	public ArrayList<InfectionContent> readInfectionContentsByMenu(long menuId) {
-		final ArrayList<InfectionContent> infectionContentList = 
-				new ArrayList<InfectionContent>();
+		final ArrayList<InfectionContent> infectionContentList = new ArrayList<InfectionContent>();
 
-		Cursor cursor = database.rawQuery("select * from " + InfectionContentTable.TABLE_NAME + " where " + InfectionContentTable.MENUID + " = ?", new String[] {Long.toString(menuId)});
+		Cursor cursor = database.rawQuery("select * from "
+				+ InfectionContentTable.TABLE_NAME + " where "
+				+ InfectionContentTable.MENUID + " = ?",
+				new String[] { Long.toString(menuId) });
 
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
@@ -138,7 +154,7 @@ public class GuidelineDataAccess {
 			infectionContent.setAntibioticList(cursor.getString(3));
 			infectionContent.setComments(cursor.getString(4));
 			infectionContent.setMenuId(cursor.getLong(5));
-			
+
 			infectionContentList.add(infectionContent);
 
 			cursor.moveToNext();
@@ -149,11 +165,14 @@ public class GuidelineDataAccess {
 
 		return infectionContentList;
 	}
-	
+
 	public ArrayList<SurgeryContent> readSurgeryContentByMenu(long menuId) {
 		ArrayList<SurgeryContent> surgeryContentList = new ArrayList<SurgeryContent>();
-		
-		Cursor cursor = database.rawQuery("select * from " + SurgeryContentTable.TABLE_NAME + " where " + SurgeryContentTable.MENUID + " = ?", new String[] {Long.toString(menuId)});
+
+		Cursor cursor = database.rawQuery("select * from "
+				+ SurgeryContentTable.TABLE_NAME + " where "
+				+ SurgeryContentTable.MENUID + " = ?",
+				new String[] { Long.toString(menuId) });
 
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
@@ -164,7 +183,7 @@ public class GuidelineDataAccess {
 			surgeryContent.setDuration(cursor.getString(3));
 			surgeryContent.setComments(cursor.getString(4));
 			surgeryContent.setMenuId(cursor.getLong(5));
-			
+
 			surgeryContentList.add(surgeryContent);
 
 			cursor.moveToNext();
@@ -172,7 +191,7 @@ public class GuidelineDataAccess {
 
 		// Close the cursor
 		cursor.close();
-		
+
 		return surgeryContentList;
 	}
 
@@ -191,7 +210,7 @@ public class GuidelineDataAccess {
 
 	public long insertMenu(Menu menu) {
 		ContentValues values = new ContentValues();
-		
+
 		values.put(MenuTable.ID, menu.getId());
 		values.put(MenuTable.NAME, menu.getName());
 		values.put(MenuTable.TYPE, menu.getType());
@@ -204,15 +223,20 @@ public class GuidelineDataAccess {
 
 	public long insertInfectionContent(InfectionContent infectionContent) {
 		ContentValues values = new ContentValues();
-		
+
 		values.put(InfectionContentTable.ID, infectionContent.getId());
-		values.put(InfectionContentTable.PRESENTATION, infectionContent.getPresentation());
-		values.put(InfectionContentTable.ORGANISM, infectionContent.getOrganism());
-		values.put(InfectionContentTable.ANTIBIOTIC, infectionContent.getAntibioticList());
-		values.put(InfectionContentTable.COMMENTS, infectionContent.getComments());
+		values.put(InfectionContentTable.PRESENTATION,
+				infectionContent.getPresentation());
+		values.put(InfectionContentTable.ORGANISM,
+				infectionContent.getOrganism());
+		values.put(InfectionContentTable.ANTIBIOTIC,
+				infectionContent.getAntibioticList());
+		values.put(InfectionContentTable.COMMENTS,
+				infectionContent.getComments());
 		values.put(InfectionContentTable.MENUID, infectionContent.getMenuId());
 
-		long _id = database.insert(InfectionContentTable.TABLE_NAME, null, values);
+		long _id = database.insert(InfectionContentTable.TABLE_NAME, null,
+				values);
 
 		return _id;
 	}
@@ -222,12 +246,14 @@ public class GuidelineDataAccess {
 
 		values.put(SurgeryContentTable.ID, surgeryContent.getId());
 		values.put(SurgeryContentTable.OPERATION, surgeryContent.getOperation());
-		values.put(SurgeryContentTable.ANTIBIOTIC, surgeryContent.getAntibioticList());
+		values.put(SurgeryContentTable.ANTIBIOTIC,
+				surgeryContent.getAntibioticList());
 		values.put(SurgeryContentTable.DURATION, surgeryContent.getDuration());
 		values.put(SurgeryContentTable.COMMENTS, surgeryContent.getComments());
 		values.put(SurgeryContentTable.MENUID, surgeryContent.getMenuId());
 
-		long _id = database.insert(SurgeryContentTable.TABLE_NAME, null, values);
+		long _id = database
+				.insert(SurgeryContentTable.TABLE_NAME, null, values);
 
 		return _id;
 	}
@@ -238,14 +264,16 @@ public class GuidelineDataAccess {
 	public long insertAntibiotic(Antibiotic antibiotic) {
 
 		ContentValues values = new ContentValues();
-		
+
 		values.put(AntibioticTable.ID, antibiotic.getId());
-		//TODO change the attributes name.
+		// TODO change the attributes name.
 		values.put(AntibioticTable.NAME, antibiotic.getName());
 		values.put(AntibioticTable.INFO_LINK_ONE, antibiotic.getInfoLink1());
-		values.put(AntibioticTable.INFO_LINK_ONE_TITLE, antibiotic.getInfoLink1Title());
+		values.put(AntibioticTable.INFO_LINK_ONE_TITLE,
+				antibiotic.getInfoLink1Title());
 		values.put(AntibioticTable.INFO_LINK_TWO, antibiotic.getInfoLink2());
-		values.put(AntibioticTable.INFO_LINK_TWO_TITLE, antibiotic.getInfoLink2Title());
+		values.put(AntibioticTable.INFO_LINK_TWO_TITLE,
+				antibiotic.getInfoLink2Title());
 
 		long id = database.insert(AntibioticTable.TABLE_NAME, null, values);
 
@@ -258,10 +286,11 @@ public class GuidelineDataAccess {
 	 * @return A list of the <code>Antibiotic</code> objects.
 	 */
 	public ArrayList<Antibiotic> readAllAntibiotics() {
-		final ArrayList<Antibiotic> AntibioticList = 
-				new ArrayList<Antibiotic>();
+		final ArrayList<Antibiotic> AntibioticList = new ArrayList<Antibiotic>();
 
-		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + "," + AntibioticTable.NAME + " from " + AntibioticTable.TABLE_NAME, new String[] {});
+		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + ","
+				+ AntibioticTable.NAME + " from " + AntibioticTable.TABLE_NAME,
+				new String[] {});
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Antibiotic antibiotic = new Antibiotic();
@@ -286,8 +315,13 @@ public class GuidelineDataAccess {
 	 */
 	public Antibiotic readAntibiotic(String id) {
 
-		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + "," + AntibioticTable.NAME + "," + AntibioticTable.INFO_LINK_ONE + "," + AntibioticTable.INFO_LINK_ONE_TITLE + "," + AntibioticTable.INFO_LINK_TWO_TITLE + "," + AntibioticTable.INFO_LINK_TWO + " from " + 
-				AntibioticTable.TABLE_NAME + " where " + AntibioticTable.ID + " = ?", new String[] {id});
+		Cursor cursor = database.rawQuery("select " + AntibioticTable.ID + ","
+				+ AntibioticTable.NAME + "," + AntibioticTable.INFO_LINK_ONE
+				+ "," + AntibioticTable.INFO_LINK_ONE_TITLE + ","
+				+ AntibioticTable.INFO_LINK_TWO_TITLE + ","
+				+ AntibioticTable.INFO_LINK_TWO + " from "
+				+ AntibioticTable.TABLE_NAME + " where " + AntibioticTable.ID
+				+ " = ?", new String[] { id });
 		cursor.moveToFirst();
 
 		Antibiotic antibiotic = new Antibiotic();
@@ -303,6 +337,7 @@ public class GuidelineDataAccess {
 
 		return antibiotic;
 	}
+<<<<<<< HEAD
 	
 	public ArrayList<Menu> readMenusBySearch(String query) {
 		String queryToken = "%" + query + "%";
@@ -356,5 +391,16 @@ public class GuidelineDataAccess {
 		cursor.close();
 
 		return AntibioticList;
+=======
+
+	/**
+	 * 
+	 */
+	public String getPath() {
+		// TODO Auto-generated method stub
+
+		database = dbHelper.getWritableDatabase();
+		return database.getPath();
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 	}
 }

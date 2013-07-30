@@ -3,10 +3,15 @@ package innovationcare.app.antibioticguidelines.ui;
 import innovationcare.app.antibioticguidelines.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+=======
+import android.os.Bundle;
+import android.view.Menu;
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -44,6 +49,7 @@ public class CockroftActivity extends Activity {
 	};
 
 	public void calculate(View v) {
+<<<<<<< HEAD
 		double age = Double.parseDouble(edtAge.getText().toString());
 		double mess = Double.parseDouble(edtMess.getText().toString());
 		double sc = Double.parseDouble(edtSC.getText().toString());
@@ -51,12 +57,45 @@ public class CockroftActivity extends Activity {
 		new AlertDialog.Builder(this).setTitle("Result")
 				.setMessage("CockRoft=" + result).setPositiveButton("OK", null)
 				.show();
+=======
+		try {
+			double age = Double.parseDouble(edtAge.getText().toString());
+			double mess = Double.parseDouble(edtMess.getText().toString());
+			double sc = Double.parseDouble(edtSC.getText().toString());
+			double result = (140 - age) * mess * temp / sc;
+			if (age > 150 || age < 1) {
+				new AlertDialog.Builder(this).setTitle("Bad Input")
+						.setMessage("Sorry,age out of boundary,limited:1-150")
+						.setPositiveButton("OK", null).show();
+			} else if (sc > 1 || sc < 0.0005) {
+				new AlertDialog.Builder(this)
+						.setTitle("Bad Input")
+						.setMessage(
+								"Sorry,Creatinine Clearance out of boundary,limited:0.0005-1")
+						.setPositiveButton("OK", null).show();
+			} else if (mess > 200 || mess < 10) {
+				new AlertDialog.Builder(this)
+						.setTitle("Bad Input")
+						.setMessage("Sorry,mess out of boundary,limited:10-200")
+						.setPositiveButton("OK", null).show();
+			} else {
+				new AlertDialog.Builder(this).setTitle("Result")
+						.setMessage("CockRoft=" + result)
+						.setPositiveButton("OK", null).show();
+			}
+		} catch (NumberFormatException e) {
+			new AlertDialog.Builder(this).setTitle("Bad Input")
+					.setMessage("Enter Numbers Plz")
+					.setPositiveButton("OK", null).show();
+		}
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+<<<<<<< HEAD
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -74,4 +113,10 @@ public class CockroftActivity extends Activity {
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
+=======
+		getMenuInflater().inflate(R.menu.cockroft, menu);
+		return true;
+	}
+
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 }

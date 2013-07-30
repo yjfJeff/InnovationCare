@@ -25,11 +25,14 @@ import java.util.List;
 
 import android.os.Environment;
 import android.util.Base64;
+<<<<<<< HEAD
 
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Base64;
 import android.widget.Toast;
+=======
+>>>>>>> bac665e2a53258f4685a4814cf9b48a49db1fac1
 
 import com.kumulos.android.jsonclient.Kumulos;
 import com.kumulos.android.jsonclient.ResponseHandler;
@@ -54,6 +57,68 @@ public class UpdateUtils {
 
 	}
 
+	public static void getAllAntibioticFromCloud(final GuidelineDataAccess dao) {
+		HashMap<String, String> param = new HashMap<String, String>();
+		Kumulos.call("getAntibiotics", param, new ResponseHandler() {
+			@Override
+			public void didCompleteWithResult(Object result) {
+				List<Object> result2 = (ArrayList<Object>) result;
+				for (Object o : result2) {
+					LinkedHashMap<String, Object> ob = (LinkedHashMap<String, Object>) o;
+					String original = ob.get("summaryPDF").toString();
+					String renal = ob.get("renalPDF").toString();
+					String title = ob.get("summaryPDFTitle").toString()
+							+ ".pdf";
+					String renaltitle = ob.get("renalPDFTitle").toString()
+							+ ".pdf";
+					String id = ob.get("antibioticTableID").toString();
+					String infoLink2Title = ob.get("infoLink2Title").toString();
+					String infoLink1Title = ob.get("infoLink1Title").toString();
+					String infoLink1 = ob.get("infoLink1").toString();
+					String infoLink2 = ob.get("infoLink2").toString();
+					Antibiotic antibiotic = new Antibiotic(Long.parseLong(id),
+							title, infoLink1Title, infoLink1, infoLink2Title,
+							infoLink2);
+					dao.insertAntibiotic(antibiotic);
+					byte[] data = Base64.decode(original, Base64.DEFAULT);
+					byte[] renaldata = Base64.decode(renal, Base64.DEFAULT);
+					try {
+						String text = new String(data, "UTF-8");
+						String filename = title;
+						File tempFile = new File(Environment
+								.getExternalStorageDirectory()
+								.getAbsolutePath(), filename);
+						if (tempFile.exists()) {
+
+						}
+						FileOutputStream fos = new FileOutputStream(tempFile);
+						fos.write(data);
+						fos.close();
+						text = new String(renaldata, "UTF-8");
+						filename = renaltitle;
+						tempFile = new File(Environment
+								.getExternalStorageDirectory()
+								.getAbsolutePath(), filename);
+						if (tempFile.exists()) {
+
+						}
+						fos = new FileOutputStream(tempFile);
+						fos.write(data);
+						fos.close();
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+	}
 	public static void getAllAntibioticFromCloud(final GuidelineDataAccess dao) {
 		HashMap<String, String> param = new HashMap<String, String>();
 		Kumulos.call("getAntibiotics", param, new ResponseHandler() {
