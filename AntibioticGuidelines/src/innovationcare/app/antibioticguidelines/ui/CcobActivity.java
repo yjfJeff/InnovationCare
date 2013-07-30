@@ -19,7 +19,7 @@ public class CcobActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_cockroft);
+		setContentView(R.layout.activity_ccob);
 		edtAge = (EditText) findViewById(R.id.age);
 		edtMess = (EditText) findViewById(R.id.mess);
 		edtSC = (EditText) findViewById(R.id.sc);

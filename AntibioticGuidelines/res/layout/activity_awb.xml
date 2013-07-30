@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:src="@drawable/grf" />
+        android:src="@drawable/abw" />
 
     <EditText
         android:id="@+id/age"
@@ -73,7 +73,7 @@
         android:layout_below="@+id/mess"
         android:layout_marginTop="33dp"
         android:background="@drawable/roundy_button"
-        android:onClick="calculte"
+        android:onClick="calculate"
         android:singleLine="false"
         android:text="@string/calculate" />
 

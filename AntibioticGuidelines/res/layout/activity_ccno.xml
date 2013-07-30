@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:src="@drawable/grf" />
+        android:src="@drawable/ccno" />
 
     <EditText
         android:id="@+id/age"
@@ -120,7 +120,7 @@
         android:layout_alignLeft="@+id/vruine"
         android:layout_below="@+id/time"
         android:background="@drawable/roundy_button"
-        android:onClick="calculte"
+        android:onClick="calculate"
         android:singleLine="false"
         android:text="@string/calculate" />
 

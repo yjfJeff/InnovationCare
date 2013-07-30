@@ -14,7 +14,7 @@ public class AWBActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_cockroft);
+		setContentView(R.layout.activity_awb);
 		edtAge = (EditText) findViewById(R.id.age);
 		edtMess = (EditText) findViewById(R.id.mess);
 	}

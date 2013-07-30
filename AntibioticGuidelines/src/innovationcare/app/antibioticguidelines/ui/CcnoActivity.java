@@ -14,7 +14,7 @@ public class CcnoActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_cockroft);
+		setContentView(R.layout.activity_ccno);
 		edtAge = (EditText) findViewById(R.id.age);
 		edtMess = (EditText) findViewById(R.id.mess);
 		edtTime = (EditText) findViewById(R.id.time);
