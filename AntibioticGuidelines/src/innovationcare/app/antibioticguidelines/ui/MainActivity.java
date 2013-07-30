@@ -11,14 +11,22 @@ import innovationcare.app.antibioticguidelines.R;
 import innovationcare.app.antibioticguidelines.UpgradeTask;
 import innovationcare.app.antibioticguidelines.cloud.UpdateUtils;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
+
+import java.util.HashMap;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
 import com.kumulos.android.jsonclient.Kumulos;
+import com.kumulos.android.jsonclient.ResponseHandler;
 
 /*
  * Modification History
@@ -98,8 +106,33 @@ public class MainActivity extends Activity {
 	}
 
 	public void onUpgrade(View v) {
-		UpgradeTask upgrade = new UpgradeTask(this);
-		upgrade.execute();
+		final AlertDialog.Builder adb = new AlertDialog.Builder(this);
+		final Context con = this;
+		HashMap<String, String> param = new HashMap<String, String>();
+		Kumulos.call("getVersion", param, new ResponseHandler() {
+			@Override
+			public void didCompleteWithResult(Object result) {
+				int curVersion = Integer.parseInt(result.toString());
+				GuidelineDataAccess dao;
+				SQLiteDatabase dbByPath=SQLiteDatabase.openOrCreateDatabase("/data/data/innovationcare.app.antibioticguidelines/databases/AntibioticApp.db", null);
+				int localversion=dbByPath.getVersion();
+				dbByPath.close();
+				dao= new GuidelineDataAccess(con,localversion);
+				if (localversion == curVersion) {
+					adb.setTitle("Upgrade")
+							.setMessage(
+									"Do not need Upgrade!Current version is:"
+											+ curVersion)
+							.setPositiveButton("OK", null).show();
+				} else {
+					UpgradeTask upgrade = new UpgradeTask(con, curVersion);
+					upgrade.execute();
+					dao.setVersion(curVersion);
+					Log.e("4", "" + dao.getVersion());
+				}
+			}
+
+		});
 	}
 
 }

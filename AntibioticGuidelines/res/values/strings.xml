@@ -86,6 +86,8 @@
     <string name="mmolepr">micromoles/L</string>
     <string name="title_activity_ccob">CcobActivity</string>
     <string name="height">Height(m):</string>
-	<string name="heightvalue">1to2.5</string>
-	<string name="nonamerican">Non-american</string>
+    <string name="heightvalue">1to2.5</string>
+    <string name="nonamerican">Non-american</string>
+    <string name="title_activity_md">MDActivity</string>
+
 </resources>

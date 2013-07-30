@@ -83,7 +83,7 @@
             android:label="@string/title_activity_antibiotic_list"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity" >
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
+                android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.DisplayAntibioticLinkActivity"
@@ -118,12 +118,8 @@
             android:label="@string/title_activity_cockroft" >
         </activity>
         <activity
-            android:name="innovationcare.app.antibioticguidelines.ui.MdrdActivity"
-            android:label="@string/title_activity_mdrd" >
-        </activity>
-        <activity
             android:name="innovationcare.app.antibioticguidelines.ui.AWBActivity"
-			android:label="@string/title_activity_awb" >
+            android:label="@string/title_activity_awb" >
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.CcListActivity"
@@ -136,6 +132,10 @@
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.CcobActivity"
             android:label="@string/title_activity_ccob" >
+        </activity>
+        <activity
+            android:name="innovationcare.app.antibioticguidelines.ui.MDActivity"
+            android:label="@string/title_activity_md" >
         </activity>
     </application>
 

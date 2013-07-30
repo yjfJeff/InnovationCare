@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class CcnoActivity extends Activity {
-	private EditText edtAge, edtMess,edtTime,edtRuine;
+	private EditText edtAge, edtMess, edtTime, edtRuine;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +22,20 @@ public class CcnoActivity extends Activity {
 	}
 
 	public void calculate(View v) {
-		double age = Double.parseDouble(edtAge.getText().toString());
-		double mess = Double.parseDouble(edtMess.getText().toString());
-		double time = Double.parseDouble(edtTime.getText().toString());
-		double ruine = Double.parseDouble(edtRuine.getText().toString());
-		double result =age*ruine/(mess*time*60);
-		new AlertDialog.Builder(this).setTitle("Result")
-				.setMessage("CreatinineClearance=" + result).setPositiveButton("OK", null)
-				.show();
+		try {
+			double age = Double.parseDouble(edtAge.getText().toString());
+			double mess = Double.parseDouble(edtMess.getText().toString());
+			double time = Double.parseDouble(edtTime.getText().toString());
+			double ruine = Double.parseDouble(edtRuine.getText().toString());
+			double result = age * ruine / (mess * time * 60);
+			new AlertDialog.Builder(this).setTitle("Result")
+					.setMessage("CreatinineClearance=" + result)
+					.setPositiveButton("OK", null).show();
+		} catch (NumberFormatException e) {
+			new AlertDialog.Builder(this).setTitle("Bad Input")
+					.setMessage("Enter Numbers Plz")
+					.setPositiveButton("OK", null).show();
+		}
 
 	}
 

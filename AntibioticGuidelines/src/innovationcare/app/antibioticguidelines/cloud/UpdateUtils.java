@@ -45,7 +45,6 @@ public class UpdateUtils {
 		getAllInfectionContentsFromCloud(dao);
 		getAllSurgeryContentsFromCloud(dao);
 	}
-
 	public static void getAllAntibioticFromCloud(final GuidelineDataAccess dao) {
 		HashMap<String, String> param = new HashMap<String, String>();
 		Kumulos.call("getAntibiotics", param, new ResponseHandler() {

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.EditText;
 
 public class CalculatorListActivity extends Activity {
 
@@ -25,7 +24,7 @@ public class CalculatorListActivity extends Activity {
 		startActivity(intent);
 	}
 	public void openMdrd(View v) {
-		Intent intent = new Intent(this, MdrdActivity.class);
+		Intent intent = new Intent(this, MDActivity.class);
 		startActivity(intent);
 	}
 	public void opencc(View v) {
