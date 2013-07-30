@@ -17,10 +17,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-<<<<<<< HEAD
-        android:theme="@style/AppTheme"
-        android:largeHeap="true" >
-=======
+        android:largeHeap="true"
         android:theme="@style/AppTheme" >
         <service android:name="innovationcare.app.antibioticguidelines.Upgrade" >
             <intent-filter>
@@ -28,7 +25,6 @@
             </intent-filter>
         </service>
 
->>>>>>> 3ca0382314ec05a34aa81925ba798530e8474161
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.MainActivity"
             android:label="@string/app_name" >
@@ -37,6 +33,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- enable the search dialog to send searches to SearchableActivity -->
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="innovationcare.app.antibioticguidelines.ui.SearchableActivity" />
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.ContactUsActivity"
@@ -51,7 +51,7 @@
             android:name="innovationcare.app.antibioticguidelines.ui.InfectionCategoryListActivity"
             android:label="@string/activity_category_menu_title"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
@@ -85,6 +85,7 @@
             android:name="innovationcare.app.antibioticguidelines.ui.AntibioticListActivity"
             android:label="@string/title_activity_antibiotic_list"
             android:parentActivityName="innovationcare.app.antibioticguidelines.ui.MainActivity" >
+            <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="innovationcare.app.antibioticguidelines.ui.MainActivity" />
         </activity>
@@ -126,7 +127,7 @@
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.AWBActivity"
-			android:label="@string/title_activity_awb" >
+            android:label="@string/title_activity_awb" >
         </activity>
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.CcListActivity"
@@ -139,6 +140,16 @@
         <activity
             android:name="innovationcare.app.antibioticguidelines.ui.CcobActivity"
             android:label="@string/title_activity_ccob" >
+        </activity>
+        <activity android:name="innovationcare.app.antibioticguidelines.ui.SearchableActivity"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
     </application>
 

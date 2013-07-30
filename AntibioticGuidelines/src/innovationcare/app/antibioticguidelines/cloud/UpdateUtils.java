@@ -46,18 +46,12 @@ import com.kumulos.android.jsonclient.ResponseHandler;
 public class UpdateUtils {
 
 	public static void getAllDataFromCloud(final GuidelineDataAccess dao) {
-<<<<<<< HEAD
 		getAllCategoryMenusFromCloud(dao);
 		getAllMenusFromCloud(dao);
 		getAllInfectionContentsFromCloud(dao);
 		getAllSurgeryContentsFromCloud(dao);
 		getAllAntibioticsFromCloud(dao);
-=======
-//		getAllCategoryMenusFromCloud(dao);
-//		getAllMenusFromCloud(dao);
-//		getAllInfectionContentsFromCloud(dao);
-//		getAllSurgeryContentsFromCloud(dao);
->>>>>>> APP banner
+
 	}
 
 	public static void getAllAntibioticFromCloud(final GuidelineDataAccess dao) {

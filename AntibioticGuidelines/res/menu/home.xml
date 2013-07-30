@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
         android:id="@+id/returnToHomeButton"
+        android:icon="@drawable/cloud_white"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
-        android:title="@string/return_to_home_button_text"
-        />
+        android:title="@string/update_button_text"/>
 
 </menu>

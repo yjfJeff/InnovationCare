@@ -12,6 +12,7 @@
     <color name="menu_item_row_hover">#4b6e9f</color>
     <color name="menu_item_row_selected">#4b6e9f</color>
     
+    <color name="backgroud_color">#E6ECF4</color>
     <color name="titlebackgroundcolor">#4b6e9f</color>
     <color name="titletextcolor">#FFFF00</color>
 </resources>
