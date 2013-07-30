@@ -84,7 +84,7 @@ public class DisplayAntibioticActivity extends Activity {
 			}
 			
 			else {
-				String filename = antibiotic.getName() + "RDH.pdf";
+				String filename = antibiotic.getName() + " RDH 2009.pdf";
 				final File tempFile = new File( Environment.getExternalStorageDirectory().getAbsolutePath(), filename );
 				openPDF( this, Uri.fromFile( tempFile ) );
 			}
