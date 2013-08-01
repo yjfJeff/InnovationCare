@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.kumulos.android.jsonclient.Kumulos;
 import com.kumulos.android.jsonclient.ResponseHandler;
@@ -39,12 +40,14 @@ import com.kumulos.android.jsonclient.ResponseHandler;
  * 
  */
 public class MainActivity extends Activity {
+	private ProgressBar pb;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		pb = (ProgressBar) findViewById(R.id.update);
+		pb.setVisibility(View.INVISIBLE);
 		Kumulos.initWithAPIKeyAndSecretKey("z1y3x0sjyvsqwykcmpq0fd05rhcxr7zx",
 				"r5dsh8d8", this);
 
@@ -114,10 +117,13 @@ public class MainActivity extends Activity {
 			public void didCompleteWithResult(Object result) {
 				int curVersion = Integer.parseInt(result.toString());
 				GuidelineDataAccess dao;
-				SQLiteDatabase dbByPath=SQLiteDatabase.openOrCreateDatabase("/data/data/innovationcare.app.antibioticguidelines/databases/AntibioticApp.db", null);
-				int localversion=dbByPath.getVersion();
+				SQLiteDatabase dbByPath = SQLiteDatabase
+						.openOrCreateDatabase(
+								"/data/data/innovationcare.app.antibioticguidelines/databases/AntibioticApp.db",
+								null);
+				int localversion = dbByPath.getVersion();
 				dbByPath.close();
-				dao= new GuidelineDataAccess(con,localversion);
+				dao = new GuidelineDataAccess(con, localversion);
 				if (localversion == curVersion) {
 					adb.setTitle("Upgrade")
 							.setMessage(
@@ -125,7 +131,7 @@ public class MainActivity extends Activity {
 											+ curVersion)
 							.setPositiveButton("OK", null).show();
 				} else {
-					UpgradeTask upgrade = new UpgradeTask(con, curVersion);
+					UpgradeTask upgrade = new UpgradeTask(con, curVersion,pb);
 					upgrade.execute();
 					dao.setVersion(curVersion);
 					Log.e("4", "" + dao.getVersion());

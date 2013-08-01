@@ -10,18 +10,12 @@ package innovationcare.app.antibioticguidelines;
 
 import innovationcare.app.antibioticguidelines.cloud.UpdateUtils;
 import innovationcare.app.antibioticguidelines.database.GuidelineDataAccess;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-
-import com.kumulos.android.jsonclient.Kumulos;
-import com.kumulos.android.jsonclient.ResponseHandler;
+import android.view.View;
+import android.widget.ProgressBar;
 
 /*
  * Modification History
@@ -37,18 +31,21 @@ public class UpgradeTask extends AsyncTask<Integer, Integer, String> {
 	private GuidelineDataAccess dao;
 	private AlertDialog.Builder adb;
 	private int curVersion;
+	private ProgressBar pb;
 
-	public UpgradeTask(Context context, int version) {
+	public UpgradeTask(Context context, int version, ProgressBar processbar) {
 		super();
 		dao = new GuidelineDataAccess(context);
 		adb = new AlertDialog.Builder(context);
 		curVersion = version;
+		this.pb = processbar;
 	}
 
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
 		Log.e("1", "" + curVersion);
+		pb.setVisibility(View.VISIBLE);
 	}
 
 	@Override
@@ -68,6 +65,7 @@ public class UpgradeTask extends AsyncTask<Integer, Integer, String> {
 
 	@Override
 	protected void onPostExecute(String result) {
+		pb.setVisibility(View.INVISIBLE);
 		adb.setTitle("Upgrade")
 				.setMessage("Upgrade Done!Current version is:" + curVersion)
 				.setPositiveButton("OK", null).show();
